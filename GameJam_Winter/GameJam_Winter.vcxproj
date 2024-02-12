@@ -140,11 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FpsController.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="Help.cpp" />
+    <ClCompile Include="InputControl.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PadInput.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Result.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -154,11 +158,15 @@
   <ItemGroup>
     <ClInclude Include="AbstractScene.h" />
     <ClInclude Include="FpsController.h" />
+    <ClInclude Include="GameEnd.h" />
     <ClInclude Include="GameMain.h" />
+    <ClInclude Include="Help.h" />
+    <ClInclude Include="InputControl.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Mission.h" />
     <ClInclude Include="PadInput.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Result.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Title.h" />

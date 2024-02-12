@@ -4,6 +4,7 @@
 enum class TITLE_MENU
 {
 	GAME_START,
+	GAME_HELP,
 	GAME_END,
 	TITLE_SIZE
 };
@@ -12,6 +13,7 @@ class Title :public AbstractScene
 private:
 	const char* menu_items[static_cast<int>(TITLE_MENU::TITLE_SIZE)] = {
    "すたーと",
+   "ヘルプ",
    "えんど"
 	};
 	int now_menu; //現在選択してるメニュー

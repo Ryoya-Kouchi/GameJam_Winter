@@ -1,14 +1,16 @@
-#include"PadInput.h"
+#include"InputControl.h"
 #include"DxLib.h"
+#include"PadInput.h"
 #include"Title.h"
 #include"GameMain.h"
 #include<iostream>
+#include"Help.h"
 
 #define SCREEN_WIDTH 1280
 
 Title::Title()
 {
-	MenuFont = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 64, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 3);
+	MenuFont = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 32, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 3);
 	now_menu = static_cast<int>(TITLE_MENU::GAME_START);
 	input_margin = 0;
 
@@ -30,24 +32,25 @@ AbstractScene* Title::Update()
 	}
 	else {
 		// スティックのY座標を取得
-		int stick_y = PAD_INPUT::GetLStick().ThumbY;
+		int stick_y1 = PAD_INPUT::GetLStick1().ThumbY;
+		int stick_y2 = PAD_INPUT::GetLStick2().ThumbY;
 
-		if (std::abs(stick_y) > stick_sensitivity) {
+		if (std::abs(stick_y1) > stick_sensitivity || std::abs(stick_y2) > stick_sensitivity) {
 			//playsoundmem
 			// スティックが上に移動した場合
-			if (stick_y > 0) {
+			if (stick_y1 > 0 || stick_y2 > 0) {
 				// メニュー選択肢を一つ前に移動
 				now_menu = (now_menu - 1 + static_cast<int>(TITLE_MENU::TITLE_SIZE)) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 			}
 			// スティックが下に移動した場合
-			else if (stick_y < 0) {
+			else if (stick_y1 < 0 || stick_y2 < 0) {
 				// メニュー選択肢を一つ次に移動
 				now_menu = (now_menu + 1) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 			}
 			input_margin = 0;
 		}
 	}
-	if (PAD_INPUT::GetNowKey(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton(XINPUT_BUTTON_A) == true))
+	if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_A) == true) || PAD_INPUT::GetNowKey2(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton2(XINPUT_BUTTON_A) == true))
 	{
 		input_margin = 0;
 		TITLE_MENU current_select = static_cast<TITLE_MENU>(now_menu);
@@ -55,6 +58,9 @@ AbstractScene* Title::Update()
 		{
 		case TITLE_MENU::GAME_START:
 			return new GameMain();
+			break;
+		case TITLE_MENU::GAME_HELP:
+			return new Help();
 			break;
 		case TITLE_MENU::GAME_END:
 			return nullptr;
