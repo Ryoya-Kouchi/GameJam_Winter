@@ -1,0 +1,7 @@
+﻿  GameMain.cpp
+  PadInput.cpp
+  Title.cpp
+  main.cpp
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\main.cpp(72,2): warning C4551: 関数呼び出しに引数リストがありません。
+  コードを生成中...
+  GameJam_Winter.vcxproj -> C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
