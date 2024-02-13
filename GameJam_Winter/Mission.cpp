@@ -1,5 +1,5 @@
 #include "Mission.h"
-
+#include"DxLib.h"
 Mission::Mission()
 {
 }

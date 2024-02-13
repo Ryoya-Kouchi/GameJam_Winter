@@ -1,4 +1,5 @@
 #include "Player.h"
+#include"DxLib.h"
 
 Player::Player()
 {
