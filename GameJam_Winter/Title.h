@@ -1,35 +1,26 @@
 #pragma once
-#include"AbstractScene.h"
 
-enum class TITLE_MENU
-{
-	GAME_START,
-	GAME_HELP,
-	GAME_END,
-	TITLE_SIZE
-};
-class Title :public AbstractScene
+#include "AbstractScene.h"
+
+class TitleScene :public AbstractScene
 {
 private:
-	const char* menu_items[static_cast<int>(TITLE_MENU::TITLE_SIZE)] = {
-   "すたーと",
-   "ヘルプ",
-   "えんど"
-	};
-	int now_menu; //現在選択してるメニュー
-	int MenuFont; //メニュー用のフォント
-	int input_margin;  //操作時間間隔
+
+private:
+	int background_image;			//背景画像
+	int menu_image;					//メニュー画像
+	int cursor_image;				//カーソル画像
+	int  menu_cursor;				//メニューカーソル番号
 
 public:
-	//コンストラクタ
-	Title();
+	TitleScene();
+	virtual ~TitleScene();
 
-	//デストラクタ
-	virtual ~Title();
-
-	//描画以外の更新を実装する
-	virtual AbstractScene* Update()override;
-
-	//描画に関することを実装する
+	virtual void Initialize() override;
+	virtual eAbstractSceneType Update() override;
 	virtual void Draw() const override;
+	virtual void Finalize() override;
+
+	virtual eAbstractSceneType GetNowScene() const override;
+
 };

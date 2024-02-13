@@ -1,39 +1,40 @@
-#include"InputControl.h"
+#include "Title.h"
+#include "PadInput.h"
 #include"DxLib.h"
-#include"PadInput.h"
-#include"Title.h"
-#include"GameMain.h"
-#include<iostream>
-#include"Help.h"
 
-#define SCREEN_WIDTH 1280
-
-Title::Title()
+TitleScene::TitleScene() :background_image(NULL), menu_image(NULL), cursor_image(NULL), menu_cursor(0)
 {
-	MenuFont = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 32, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 3);
-	now_menu = static_cast<int>(TITLE_MENU::GAME_START);
-	input_margin = 0;
 
 }
 
-Title::~Title()
+TitleScene::~TitleScene()
 {
+
 }
 
-AbstractScene* Title::Update()
-{
-	// 操作間隔時間
-	const int max_input_margin = 15;
-	// スティックの感度
-	const int stick_sensitivity = 20000;
 
-	if (input_margin < max_input_margin) {
-		input_margin++;
+//初期化処理
+void TitleScene::Initialize()
+{
+	//画像読み込み
+	background_image = LoadGraph("Resource/images/Title.bmp");
+	menu_image = LoadGraph("Resource/images/menu.bmp");
+	cursor_image = LoadGraph("Resource/images/cone.bmp");
+
+	//エラーチェック
+	if (background_image == -1)
+	{
+		throw("Resource/images/Title.bmpがありません\n");
 	}
-	else {
-		// スティックのY座標を取得
-		int stick_y1 = PAD_INPUT::GetLStick1().ThumbY;
-		int stick_y2 = PAD_INPUT::GetLStick2().ThumbY;
+	if (menu_image == -1)
+	{
+		throw("Resource/images/menu.bmpがありません\n");
+	}
+	if (cursor_image == -1)
+	{
+		throw("Resource/images/cone.bmpがありません\n");
+	}
+}
 
 		if (std::abs(stick_y1) > stick_sensitivity || std::abs(stick_y2) > stick_sensitivity) {
 			// スティックが上に移動した場合
@@ -63,50 +64,48 @@ AbstractScene* Title::Update()
 
 	if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_A) == true))
 	{
-		input_margin = 0;
-		TITLE_MENU current_select = static_cast<TITLE_MENU>(now_menu);
-		switch (current_select)
+		switch (menu_cursor)
 		{
-		case TITLE_MENU::GAME_START:
-			return new GameMain();
-			break;
-		case TITLE_MENU::GAME_HELP:
-			return new Help();
-			break;
-		case TITLE_MENU::GAME_END:
-			return nullptr;
-			break;
+		case 0:
+			return eAbstractSceneType::E_MAIN;
+		case 1:
+			return eAbstractSceneType::E_RANKING_DISP;
+		case 2:
+			return eAbstractSceneType::E_HELP;
 		default:
-			printfDx("未実装な機能です。\n");
-			break;
+			return eAbstractSceneType::E_END;
 		}
 	}
 
-	return this;
+	//現在のシーンタイプを返す
+	return GetNowScene();
 }
 
-void Title::Draw() const
+//描画処理
+void TitleScene::Draw() const
 {
-	for (int i = 0; i < static_cast<int>(TITLE_MENU::TITLE_SIZE); i++)
-	{
-		// 文字列の最小Y座標
-		const int base_y = 200;
+	//タイトル画像の描画
+	DrawGraph(0, 0, background_image, FALSE);
 
-		// 文字列のY座標間隔
-		const int margin_y = 100;
+	//メニュー画像の描面
+	DrawGraph(120, 200, menu_image, TRUE);
 
-		// 文字色
-		int color = 0xFFFFFF;
-		// 文字外枠色
-		int border_color = 0x000000;
+	//カーソル画像の描画
+	DrawRotaGraph(90, 220 + menu_cursor * 40, 0.7, DX_PI / 2.0, cursor_image, TRUE);
 
-		// カーソルが合っている場合、文字色と文字外枠色を反転させる
-		if (now_menu == i) {
-			color = ~color;
-			border_color = ~border_color;
-		}
-		DrawStringToHandle(SCREEN_WIDTH / 2 - 100, i * margin_y + base_y, menu_items[i], color, MenuFont, border_color);
-	}
-	DrawStringToHandle(150, 100, "GameJam_Winter", 0xffffff, MenuFont);
+}
 
+//終了時処理
+void TitleScene::Finalize()
+{
+	//読み込んだ画像削除
+	DeleteGraph(background_image);
+	DeleteGraph(menu_image);
+	DeleteGraph(cursor_image);
+}
+
+//現在のシーン情報を取得
+eAbstractSceneType TitleScene::GetNowScene() const
+{
+	return eAbstractSceneType::E_TITLE;
 }
