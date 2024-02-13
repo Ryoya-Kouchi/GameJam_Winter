@@ -61,12 +61,13 @@ int WINAPI WinMain(_In_ HINSTANCE ih, _In_opt_ HINSTANCE ioh, _In_ LPSTR il, _In
 		sceneMng->Draw();
 		FPSC.All();
 		FPSC.Disp();
+		ScreenFlip();			// 裏画面の内容を表画面に反映
 		//強制終了
-		if (PAD_INPUT::OnButton1(XINPUT_BUTTON_BACK) || PAD_INPUT::OnButton2(XINPUT_BUTTON_BACK) || CheckHitKey(KEY_INPUT_ESCAPE))
+		if (PAD_INPUT::OnButton1(XINPUT_BUTTON_BACK) || CheckHitKey(KEY_INPUT_ESCAPE))
 		{
 			break;
 		}
-		ScreenFlip();			// 裏画面の内容を表画面に反映
+
 	}
 
 	DxLib_End;

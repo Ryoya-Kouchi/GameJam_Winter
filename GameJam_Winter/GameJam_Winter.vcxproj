@@ -171,6 +171,7 @@
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

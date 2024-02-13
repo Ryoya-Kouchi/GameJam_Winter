@@ -36,13 +36,12 @@ AbstractScene* Title::Update()
 		int stick_y2 = PAD_INPUT::GetLStick2().ThumbY;
 
 		if (std::abs(stick_y1) > stick_sensitivity || std::abs(stick_y2) > stick_sensitivity) {
-			//playsoundmem
 			// スティックが上に移動した場合
-			if (stick_y1 > 0 || stick_y2 > 0) {
+			if (stick_y1 > 0 || stick_y2 > 0 ) {
 				// メニュー選択肢を一つ前に移動
 				now_menu = (now_menu - 1 + static_cast<int>(TITLE_MENU::TITLE_SIZE)) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 			}
-			// スティックが下に移動した場合
+			 //スティックが下に移動した場合
 			else if (stick_y1 < 0 || stick_y2 < 0) {
 				// メニュー選択肢を一つ次に移動
 				now_menu = (now_menu + 1) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
@@ -50,7 +49,19 @@ AbstractScene* Title::Update()
 			input_margin = 0;
 		}
 	}
-	if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_A) == true) || PAD_INPUT::GetNowKey2(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton2(XINPUT_BUTTON_A) == true))
+		// 十字キー上に移動した場合
+		if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_DPAD_UP) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_DPAD_UP) == true)) {
+			// メニュー選択肢を一つ前に移動
+			now_menu = (now_menu - 1 + static_cast<int>(TITLE_MENU::TITLE_SIZE)) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
+		}
+		//十字キー下に移動した場合
+		else if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_DPAD_DOWN) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_DPAD_DOWN) == true)) {
+			// メニュー選択肢を一つ次に移動
+			now_menu = (now_menu + 1) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
+		}
+
+
+	if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_A) == true))
 	{
 		input_margin = 0;
 		TITLE_MENU current_select = static_cast<TITLE_MENU>(now_menu);

@@ -128,10 +128,12 @@ public:
 	{
 		return Lstick2;
 	}
+
 	static char GetNowKey1(const int i)
 	{
 		return NowKey1[i];
 	}
+
 	static char GetOldKey1(const int i)
 	{
 		return OldKey1[i];
