@@ -1,76 +1,39 @@
-#include"DxLib.h"
-#include"SceneManager.h"
-#include"PadInput.h"
-#include "Title.h"
-#include "FpsController.h"
-#include"Title.h"
-#include"GameMain.h"
+/*******************************************
+車避けゲームを作ってみよう！
+********************************************/
 
-#define FRAMERATE 60.0 //フレームレート
+#include "DxLib.h"
+#include "Scene/SceneManager.h"
 
-#define SCREEN_HEIGHT 720	//画面サイズ (縦)
-#define SCREEN_WIDTH 1280	//画面サイズ (横)
-#define SCORE_UI_SIZE 180	//スコア表示エリアサイズ (横)
-
-
-/***********************************************
- * プログラムの開始
- ***********************************************/
-int WINAPI WinMain(_In_ HINSTANCE ih, _In_opt_ HINSTANCE ioh, _In_ LPSTR il, _In_ int ii)
+//メイン関数(プログラムはここから始まります)
+int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
+	_In_ LPSTR lpCmdLine, _In_ int nCmdShow)
 {
-	SetMainWindowText("GameCollect");
-
-	ChangeWindowMode(TRUE);		// ウィンドウモードで起動
-
-	SetGraphMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32);	//画面サイズの設定
-
-	if (DxLib_Init() == -1)
-	{
-		return -1;	// DXライブラリの初期化処理
-	}
-	SetDrawScreen(DX_SCREEN_BACK);	// 描画先画面を裏にする
-
-	SceneManager* sceneMng;
-
+	//例外処理（異常が発生したら、catch文に飛びます）
 	try
 	{
-		sceneMng = new SceneManager((AbstractScene*)new Title());
+		//シーンマネージャー機能の生成
+		SceneManager manager;
 
+		//シーンマネージャー機能の初期化処理
+		manager.Initialize();
+
+		//シーンマネージャー機能の更新処理
+		manager.Update();
+
+		//シーンマネージャー機能の終了時処理
+		manager.Finalize();
 	}
-	catch (const char* err)
+	catch (const char* err_log)
 	{
-		FILE* fp = NULL;
+		//エラー発生内容の出力
+		OutputDebugString(err_log);
 
-		DATEDATA data;
-
-		GetDateTime(&data);
-		//ファイルオープン
-		fopen_s(&fp, "ErrLog.txt", "a");
-		//エラーデータの書き込み
-		fprintf_s(fp, "%02d年 %02d月 %02d日 %02d時 %02d分 %02d秒 : %sがありません。\n", data.Year, data.Mon, data.Day, data.Hour, data.Min, data.Sec, err);
-
-		return 0;
-	}
-	FpsController FPSC(FRAMERATE, 800);
-
-	// ゲームループ
-	while ((ProcessMessage() == 0) && (sceneMng->Update() != nullptr)) {
-
-		ClearDrawScreen();		// 画面の初期化
-		PAD_INPUT::UpdateKey();
-		sceneMng->Draw();
-		FPSC.All();
-		FPSC.Disp();
-		//強制終了
-		if (PAD_INPUT::OnButton1(XINPUT_BUTTON_BACK) || PAD_INPUT::OnButton2(XINPUT_BUTTON_BACK) || CheckHitKey(KEY_INPUT_ESCAPE))
-		{
-			break;
-		}
-		ScreenFlip();			// 裏画面の内容を表画面に反映
+		//エラー終了を通知
+		return -1;
 	}
 
-	DxLib_End;
-
+	//正常終了を通知
 	return 0;
 
 }
