@@ -15,14 +15,15 @@ class TitleScene :public AbstractScene
 private:
 
 private:
-	const char* menu_items[static_cast<int>(TITLE_MENU::TITLE_SIZE)] = {
+	/*const char* menu_items[static_cast<int>(TITLE_MENU::TITLE_SIZE)] = {
    "すたーと",
    "ヘルプ",
    "えんど"
-	};
-	int now_menu; //現在選択してるメニュー
-	int MenuFont; //メニュー用のフォント
-	int input_margin;  //操作時間間隔
+	};*/
+	int background_image;			//背景画像
+	int now_menu;                   //現在選択してるメニュー
+	int MenuFont;                   //メニュー用のフォント
+	int input_margin;               //操作時間間隔
 
 public:
 	TitleScene();
@@ -31,13 +32,4 @@ public:
 	AbstractScene* Update() override;
 	//描画に関することを実装
 	void Draw() const override;
-
-
-	//virtual void Initialize() override;
-	//virtual eAbstractSceneType Update() override;
-	//virtual void Draw() const override;
-	///*virtual void Finalize() override;*/
-
-	//virtual eAbstractSceneType GetNowScene() const override;
-
 };

@@ -38,4 +38,3 @@ void SceneManager::Draw() const
 {
 	mScene->Draw();
 }
-

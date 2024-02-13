@@ -9,7 +9,14 @@
 
 TitleScene::TitleScene()
 {
-	MenuFont = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 32, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 3);
+	//MenuFont = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 32, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 3);
+	//画像読み込み
+    background_image = LoadGraph("Resource/images/Title.png");
+	//	//エラーチェック
+	if (background_image == -1)
+	{
+		throw("Resource/images/Title.pngがありません\n");
+	}
 	now_menu = static_cast<int>(TITLE_MENU::GAME_START);
 	input_margin = 0;
 }
@@ -18,14 +25,6 @@ TitleScene::~TitleScene()
 {
 
 }
-
-
-////初期化処理
-//void TitleScene::Initialize()
-//{
-//	
-//	
-//}
 
 AbstractScene* TitleScene::Update()
 {	// 操作間隔時間
@@ -92,11 +91,13 @@ AbstractScene* TitleScene::Update()
 
 }
 
-	
-
 //描画処理
 void TitleScene::Draw() const
 {
+
+	//タイトル画像の描画
+	DrawGraph(0, 0, background_image, FALSE);
+	
 	for (int i = 0; i < static_cast<int>(TITLE_MENU::TITLE_SIZE); i++)
 	{
 		// 文字列の最小Y座標

@@ -60,6 +60,7 @@ int WINAPI WinMain(_In_ HINSTANCE ih, _In_opt_ HINSTANCE ioh, _In_ LPSTR il, _In
 
 		ClearDrawScreen();		// 画面の初期化
 		PAD_INPUT::UpdateKey();
+		//シーンマネージャー機能の初期化処理
 		sceneMng->Draw();
 		FPSC.All();
 		FPSC.Disp();
