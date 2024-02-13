@@ -1,4 +1,5 @@
 #include "Stage.h"
+#include"DxLib.h"
 
 Stage::Stage()
 {

@@ -1,4 +1,5 @@
 #include "UI.h"
+#include"DxLib.h"
 
 UI::UI()
 {

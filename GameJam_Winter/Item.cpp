@@ -1,4 +1,5 @@
 #include "item.h"
+#include"DxLib.h"
 
 Item::Item()
 {
