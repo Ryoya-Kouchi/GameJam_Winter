@@ -16,16 +16,16 @@ public:
 	GameMainScene();
 	virtual ~GameMainScene();
 
-	virtual void Initialize() override;
-	virtual eAbstractSceneType Update() override;
+	//virtual void Initialize() override;
+	virtual AbstractScene* Update() override;
 	virtual void Draw() const override;
-	virtual void Finalize() override;
+	//virtual void Finalize() override;
 
-	virtual eAbstractSceneType GetNowScene() const override;
+	//virtual eAbstractSceneType GetNowScene() const override;
 
 private:
-	//ハイスコア読み込み処理
-	void ReadHighScore();
+	////ハイスコア読み込み処理
+	//void ReadHighScore();
 	//当たり判定
 	bool IsHitCheck(Player* p);
 

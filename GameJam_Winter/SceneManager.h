@@ -1,28 +1,28 @@
 #pragma once
+#include"AbstractScene.h"
 
-#include "AbstractScene.h"
-
-//固定化するフレームレート値
-#define TARGET_FREAM_RATE (60)
-//1フレーム当たりの時間（マイクロ秒）
-#define DELTA_SECOND      (1000000/TARGET_FREAM_RATE)
-
-//シーンマネージャークラス
-class SceneManager
+class SceneManager :
+    public AbstractScene
 {
 private:
-	AbstractScene* current_scene;			//現在シーン情報
-
+    AbstractScene* mScene;
 public:
-	SceneManager();
-	~SceneManager();
 
-	void Initialize();					//初期化処理
-	void Update();						//更新処理
-	void Finalize();					//終了時処理
+    //コンストラクタ
+    SceneManager(AbstractScene* scene) :mScene(scene) {};
 
-private:
-	void Draw() const;							//描画処理
-	void ChangeScene(eAbstractSceneType scene_type);			//シーン切り替え処理
-	AbstractScene* CreateScene(eAbstractSceneType scene_type);		//シーン生成処理
+    //デストラクタ
+    ~SceneManager()
+    {
+        delete mScene;
+    }
+
+    //描画以外の更新を実行
+    AbstractScene* Update() override;
+
+    //描画に関することを実装
+    void Draw() const override;
 };
+
+
+

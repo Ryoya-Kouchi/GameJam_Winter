@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "../Utility/InputControl.h"
+#include "PadInput.h"
 #include "Dxlib.h"
 
 Player::Player() :is_active(false), image(NULL), location(0.0f), box_size(0.0f),
@@ -59,13 +59,13 @@ void Player::Update()
 	//加減速処理
 	Acceleration();
 
-	if (InputControl::GetButtonDown(XINPUT_BUTTON_START))
+	if (PAD_INPUT::OnButton1(XINPUT_BUTTON_START))
 	{
 		is_active = false;
 	}
 
 	//バリア処理
-	if (InputControl::GetButtonDown(XINPUT_BUTTON_B) && barrier_count > 0)
+	if (PAD_INPUT::OnButton1(XINPUT_BUTTON_B) && barrier_count > 0)
 	{
 		if (barrier == nullptr)
 		{
@@ -173,21 +173,21 @@ void Player::Movement()
 	angle = 0.0f;
 
 	//十字移動処理
-	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_LEFT))
+	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_LEFT))
 	{
 		move += Vector2D(-1.0f, 0.0f);
 		angle = -DX_PI_F / 18;
 	}
-	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_RIGHT))
+	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_RIGHT))
 	{
 		move += Vector2D(1.0f, 0.0f);
 		angle = DX_PI_F / 18;
 	}
-	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_UP))
+	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_UP))
 	{
 		move += Vector2D(0.0f, -1.0f);
 	}
-	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_DOWN))
+	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_DOWN))
 	{
 		move += Vector2D(0.0f, 1.0f);
 	}
@@ -205,13 +205,13 @@ void Player::Movement()
 void Player::Acceleration()
 {
 	//LBボタンが押されたら、減速する
-	if (InputControl::GetButtonDown(XINPUT_BUTTON_LEFT_SHOULDER) && speed > 1.0f)
+	if (PAD_INPUT::OnButton1(XINPUT_BUTTON_LEFT_SHOULDER) && speed > 1.0f)
 	{
 		speed -= 1.0f;
 	}
 
 	//REボタンが押されたら、加速する
-	if (InputControl::GetButtonDown(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f)
+	if (PAD_INPUT::OnButton1(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f)
 	{
 		speed += 1.0f;
 	}

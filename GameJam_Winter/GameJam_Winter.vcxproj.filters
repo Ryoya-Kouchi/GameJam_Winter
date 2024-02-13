@@ -115,8 +115,5 @@
     <ClInclude Include="PadInput.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

@@ -14,34 +14,34 @@ GameMainScene::~GameMainScene()
 }
 
 //初期化処理
-void GameMainScene::Initialize()
-{
-	
-
-	//画像の読み込み
-	back_ground = LoadGraph("Resource/images/back.bmp");
-	
-
-	//エラーチェック
-	if (back_ground == -1)
-	{
-		throw("Resource/images/back.bmpがありません\n");
-	}
-
-	
-
-	//オブジェクト生成
-	player = new Player;
-	
-
-	//オブジェクトの初期化
-	player->Initialize();
-
-	
-}
+//void GameMainScene::Initialize()
+//{
+//	
+//
+//	//画像の読み込み
+//	back_ground = LoadGraph("Resource/images/back.bmp");
+//	
+//
+//	//エラーチェック
+//	if (back_ground == -1)
+//	{
+//		throw("Resource/images/back.bmpがありません\n");
+//	}
+//
+//	
+//
+//	//オブジェクト生成
+//	player = new Player;
+//	
+//
+//	//オブジェクトの初期化
+//	player->Initialize();
+//
+//	
+//}
 
 //更新処理
-eAbstractSceneType GameMainScene::Update()
+AbstractScene* GameMainScene::Update()
 {
 	//プレイヤーの更新
 	player->Update();
@@ -60,17 +60,7 @@ eAbstractSceneType GameMainScene::Update()
 				player->DecreaseHp(-50.0f);
 				
 			}
-		
-	
-
-	//プレイヤーの燃料か体力が０未満なら、リザルトに遷移する
-	if (player->GetFuel() < 0.0f || player->GetHp() < 0.0f)
-	{
-		return eAbstractSceneType::E_RESULT;
-	}
-
-	return GetNowScene();
-
+			return this;
 }
 
 //描画処理
@@ -112,32 +102,7 @@ void GameMainScene::Draw() const
 }
 
 //終了時処理
-void GameMainScene::Finalize()
-{
-	//スコアを計算する
-	int score = (mileage / 10 * 10);
-	for (int i = 0; i < 3; i++)
-	{
-		score += (i + 1) * 50 * enemy_count[i];
-	}
-
-	//リザルトデータの書き込み
-	FILE* fp = nullptr;
-
-
-
-	//動的確保したオブジェクトを削除する
-	player->Finalize();
-	delete player;
-
-	
-}
-
 //現在シーン情報を取得
-eAbstractSceneType GameMainScene::GetNowScene() const
-{
-	return eAbstractSceneType::E_MAIN;
-}
 
 
 
