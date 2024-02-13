@@ -1,15 +1,15 @@
 #pragma once
-// デフォルトの抽象シーンクラス
-// ユーザーはこれを継承してシーンを実装すると楽
 
-class AbstractScene {
+class AbstractScene
+{
 public:
-    // デストラクタ
-    virtual ~AbstractScene() {}
+	//デストラクタ
+	virtual ~AbstractScene() {};
 
-    // 更新処理を実装する
-    virtual AbstractScene* Update() = 0;
+	//描画以外の更新を実行
+	virtual AbstractScene* Update() = 0;
 
-    // 描画処理を実装する
-    virtual void Draw() const = 0;
+	//描画に関することを実装
+	virtual void Draw() const = 0;
+
 };

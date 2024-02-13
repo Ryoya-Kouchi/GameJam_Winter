@@ -139,9 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Barrier.cpp" />
     <ClCompile Include="FpsController.cpp" />
-    <ClCompile Include="GameEnd.cpp" />
-    <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="GameMainScene.cpp" />
     <ClCompile Include="Help.cpp" />
     <ClCompile Include="InputControl.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -152,14 +152,13 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Title.cpp" />
-    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Mission.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractScene.h" />
+    <ClInclude Include="Barrier.h" />
     <ClInclude Include="FpsController.h" />
-    <ClInclude Include="GameEnd.h" />
-    <ClInclude Include="GameMain.h" />
+    <ClInclude Include="GameMainScene.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="InputControl.h" />
     <ClInclude Include="Item.h" />
@@ -170,7 +169,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Title.h" />
-    <ClInclude Include="UI.h" />
+    <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

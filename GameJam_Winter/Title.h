@@ -1,5 +1,6 @@
 #pragma once
-#include"AbstractScene.h"
+
+#include "AbstractScene.h"
 
 enum class TITLE_MENU
 {
@@ -8,8 +9,11 @@ enum class TITLE_MENU
 	GAME_END,
 	TITLE_SIZE
 };
-class Title :public AbstractScene
+
+class TitleScene :public AbstractScene
 {
+private:
+
 private:
 	const char* menu_items[static_cast<int>(TITLE_MENU::TITLE_SIZE)] = {
    "すたーと",
@@ -21,15 +25,19 @@ private:
 	int input_margin;  //操作時間間隔
 
 public:
-	//コンストラクタ
-	Title();
+	TitleScene();
+	~TitleScene();
+	//描画以外の更新を実行
+	AbstractScene* Update() override;
+	//描画に関することを実装
+	void Draw() const override;
 
-	//デストラクタ
-	virtual ~Title();
 
-	//描画以外の更新を実装する
-	virtual AbstractScene* Update()override;
+	//virtual void Initialize() override;
+	//virtual eAbstractSceneType Update() override;
+	//virtual void Draw() const override;
+	///*virtual void Finalize() override;*/
 
-	//描画に関することを実装する
-	virtual void Draw() const override;
+	//virtual eAbstractSceneType GetNowScene() const override;
+
 };

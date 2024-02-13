@@ -1,10 +1,12 @@
-#include"DxLib.h"
-#include"SceneManager.h"
+/*******************************************
+車避けゲームを作ってみよう！
+********************************************/
+
+#include "DxLib.h"
+#include "SceneManager.h"
 #include"PadInput.h"
-#include "Title.h"
-#include "FpsController.h"
+#include"FpsController.h"
 #include"Title.h"
-#include"GameMain.h"
 
 #define FRAMERATE 60.0 //フレームレート
 
@@ -34,7 +36,7 @@ int WINAPI WinMain(_In_ HINSTANCE ih, _In_opt_ HINSTANCE ioh, _In_ LPSTR il, _In
 
 	try
 	{
-		sceneMng = new SceneManager((AbstractScene*)new Title());
+		sceneMng = new SceneManager((AbstractScene*)new TitleScene());
 
 	}
 	catch (const char* err)
@@ -62,7 +64,7 @@ int WINAPI WinMain(_In_ HINSTANCE ih, _In_opt_ HINSTANCE ioh, _In_ LPSTR il, _In
 		FPSC.All();
 		FPSC.Disp();
 		//強制終了
-		if (PAD_INPUT::OnButton1(XINPUT_BUTTON_BACK) || PAD_INPUT::OnButton2(XINPUT_BUTTON_BACK) || CheckHitKey(KEY_INPUT_ESCAPE))
+		if (PAD_INPUT::OnButton1(XINPUT_BUTTON_BACK) || CheckHitKey(KEY_INPUT_ESCAPE))
 		{
 			break;
 		}
