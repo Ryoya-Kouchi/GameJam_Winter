@@ -1,8 +1,8 @@
 #pragma once
 
-#include "SceneBase.h"
+#include "AbstractScene.h"
 
-class TitleScene :public SceneBase
+class TitleScene :public AbstractScene
 {
 private:
 
@@ -17,10 +17,10 @@ public:
 	virtual ~TitleScene();
 
 	virtual void Initialize() override;
-	virtual eSceneType Update() override;
+	virtual eAbstractSceneType Update() override;
 	virtual void Draw() const override;
 	virtual void Finalize() override;
 
-	virtual eSceneType GetNowScene() const override;
+	virtual eAbstractSceneType GetNowScene() const override;
 
 };

@@ -1,6 +1,6 @@
 #pragma once
 
-//SceneBase.hの代わり
+//AbstractScene.hの代わり
 
 //シーン情報
 enum eAbstractSceneType
@@ -21,6 +21,9 @@ public:
 	AbstractScene() {}
     // デストラクタ
     virtual ~AbstractScene() {}
+
+	//初期化処理
+	virtual void Initialize() {}
 
     // 更新処理を実装する
 	virtual eAbstractSceneType Update()

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SceneBase.h"
+#include "AbstractScene.h"
 
 //固定化するフレームレート値
 #define TARGET_FREAM_RATE (60)
@@ -11,7 +11,7 @@
 class SceneManager
 {
 private:
-	SceneBase* current_scene;			//現在シーン情報
+	AbstractScene* current_scene;			//現在シーン情報
 
 public:
 	SceneManager();
@@ -23,6 +23,6 @@ public:
 
 private:
 	void Draw() const;							//描画処理
-	void ChangeScene(eSceneType scene_type);			//シーン切り替え処理
-	SceneBase* CreateScene(eSceneType scene_type);		//シーン生成処理
+	void ChangeScene(eAbstractSceneType scene_type);			//シーン切り替え処理
+	AbstractScene* CreateScene(eAbstractSceneType scene_type);		//シーン生成処理
 };

@@ -1,5 +1,5 @@
-#include "TitleScene.h"
-#include "../Utility/InputControl.h"
+#include "Title.h"
+#include "PadInput.h"
 #include"DxLib.h"
 
 TitleScene::TitleScene() :background_image(NULL), menu_image(NULL), cursor_image(NULL), menu_cursor(0)
@@ -37,7 +37,7 @@ void TitleScene::Initialize()
 }
 
 //更新処理
-eSceneType TitleScene::Update()
+eAbstractSceneType TitleScene::Update()
 {
 	//カーソル下移動
 	if (InputControl::GetButtonDown(XINPUT_BUTTON_DPAD_DOWN))
@@ -67,13 +67,13 @@ eSceneType TitleScene::Update()
 		switch (menu_cursor)
 		{
 		case 0:
-			return eSceneType::E_MAIN;
+			return eAbstractSceneType::E_MAIN;
 		case 1:
-			return eSceneType::E_RANKING_DISP;
+			return eAbstractSceneType::E_RANKING_DISP;
 		case 2:
-			return eSceneType::E_HELP;
+			return eAbstractSceneType::E_HELP;
 		default:
-			return eSceneType::E_END;
+			return eAbstractSceneType::E_END;
 		}
 	}
 
@@ -105,7 +105,7 @@ void TitleScene::Finalize()
 }
 
 //現在のシーン情報を取得
-eSceneType TitleScene::GetNowScene() const
+eAbstractSceneType TitleScene::GetNowScene() const
 {
-	return eSceneType::E_TITLE;
+	return eAbstractSceneType::E_TITLE;
 }

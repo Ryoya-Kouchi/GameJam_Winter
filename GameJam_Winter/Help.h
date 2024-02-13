@@ -1,8 +1,8 @@
 #pragma once
 
-#include "SceneBase.h"
+#include "AbstractScene.h"
 
-class HelpScene :public SceneBase
+class HelpScene :public AbstractScene
 {
 private:
 	int background_image;		//”wŒi‰æ‘œ
@@ -12,21 +12,10 @@ public:
 	virtual~HelpScene();
 
 	virtual void Initialize() override;
-	virtual eSceneType Update() override;
+	virtual eAbstractSceneType Update() override;
 	virtual void Draw() const override;
 	virtual void Finalize() override;
 
-	virtual eSceneType GetNowScene() const override;
+	virtual eAbstractSceneType GetNowScene() const override;
 
-}; #pragma once
-#include"AbstractScene.h"
-class Help : public AbstractScene
-{
-private:
-
-public:
-	Help();
-	~Help();
-	virtual AbstractScene* Update()override;
-	void Draw()const;
-};
+}; 

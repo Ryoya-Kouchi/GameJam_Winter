@@ -1,12 +1,10 @@
 #include"SceneManager.h"
-#include"../Utility/InputControl.h"
+#include"PadInput.h"
 #include"DxLib.h"
-#include"TitleScene.h"
+#include"Title.h"
 #include"GameMainScene.h"
-#include"ResultScene.h"
-#include"HelpScene.h"
-#include"RankingDispScene.h"
-#include"RankingInputScene.h"
+#include"Result.h"
+#include"Help.h"
 
 SceneManager::SceneManager() :current_scene(nullptr)
 {
@@ -43,7 +41,7 @@ void SceneManager::Initialize()
 	}
 
 	//タイトルシーンから始める
-	ChangeScene(eSceneType::E_TITLE);
+	ChangeScene(eAbstractSceneType::E_TITLE);
 }
 
 //シーンマネージャー機能：更新処理
@@ -69,13 +67,13 @@ void SceneManager::Update()
 			InputControl::Update();
 
 			//更新処理(戻り値は次のシーン情報)
-			eSceneType next = current_scene->Update();
+			eAbstractSceneType next = current_scene->Update();
 
 			//描画処理
 			Draw();
 
 			//エンドが選択されていたら、ゲームを終了する
-			if (next == eSceneType::E_END)
+			if (next == eAbstractSceneType::E_END)
 			{
 				break;
 			}
@@ -123,10 +121,10 @@ void SceneManager::Draw() const
 }
 
 //シーン切り替え処理
-void SceneManager::ChangeScene(eSceneType scene_type)
+void SceneManager::ChangeScene(eAbstractSceneType scene_type)
 {
-	//シーンを生成する（SceneBaseが継承されているか？）
-	SceneBase* new_scene = dynamic_cast<SceneBase*>(CreateScene(scene_type));
+	//シーンを生成する（AbstractSceneが継承されているか？）
+	AbstractScene* new_scene = dynamic_cast<AbstractScene*>(CreateScene(scene_type));
 
 
 	//エラーチェック
@@ -150,23 +148,18 @@ void SceneManager::ChangeScene(eSceneType scene_type)
 }
 
 //シーン生成処理
-SceneBase* SceneManager::CreateScene(eSceneType scene_type)
+AbstractScene* SceneManager::CreateScene(eAbstractSceneType scene_type)
 {
 	//引数（シーンタイプ）によって、生成するシーンを決定する
 	switch (scene_type)
 	{
-	case eSceneType::E_TITLE:
+	case eAbstractSceneType::E_TITLE:
 		return new TitleScene;
-	case eSceneType::E_MAIN:
+	case eAbstractSceneType::E_MAIN:
 		return new GameMainScene;
-	case eSceneType::E_RESULT:
-		return new ResultScene;
-	case eSceneType::E_HELP:
+	case eAbstractSceneType::E_HELP:
 		return new HelpScene;
-	case eSceneType::E_RANKING_DISP:
-		return new RankingDispScene;
-	case eSceneType::E_RANKING_INPUT:
-		return new RankingInputScene;
+	
 	default:
 		return nullptr;
 	}

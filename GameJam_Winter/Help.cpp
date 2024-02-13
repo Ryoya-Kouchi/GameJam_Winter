@@ -1,5 +1,5 @@
-#include "HelpScene.h"
-#include "../Utility/InputControl.h"
+#include "Help.h"
+#include "InputControl.h"
 #include "DxLib.h"
 
 HelpScene::HelpScene() :background_image(NULL)
@@ -26,12 +26,12 @@ void HelpScene::Initialize()
 }
 
 //更新処理
-eSceneType HelpScene::Update()
+eAbstractSceneType HelpScene::Update()
 {
 	//Bボタンが押されたら、タイトルに戻る
 	if (InputControl::GetButtonDown(XINPUT_BUTTON_B))
 	{
-		return eSceneType::E_TITLE;
+		return eAbstractSceneType::E_TITLE;
 	}
 
 	return GetNowScene();
@@ -65,7 +65,7 @@ void HelpScene::Finalize()
 }
 
 //現在のシーン情報を取得
-eSceneType HelpScene::GetNowScene() const
+eAbstractSceneType HelpScene::GetNowScene() const
 {
-	return eSceneType::E_HELP;
+	return eAbstractSceneType::E_HELP;
 }

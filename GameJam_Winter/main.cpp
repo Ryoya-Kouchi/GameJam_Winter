@@ -3,7 +3,7 @@
 ********************************************/
 
 #include "DxLib.h"
-#include "Scene/SceneManager.h"
+#include "SceneManager.h"
 
 //メイン関数(プログラムはここから始まります)
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
