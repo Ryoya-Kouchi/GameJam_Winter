@@ -2,6 +2,7 @@
 #include "PadInput.h"
 #include "Dxlib.h"
 #include<iostream>
+#include"Player2.h"
 Player::Player() :is_active(false), image(NULL), location(0.0f), box_size(0.0f),
 angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullptr)
 {
@@ -51,6 +52,7 @@ Player::~Player()
 //更新処理
 void Player::Update()
 {
+	Hit();
 	//操作不可能状態であれば、自身を回転させる
 	if (!is_active)
 	{
@@ -104,7 +106,12 @@ void Player::Draw()
 {
 	//プレイヤー画像の描画
 	DrawRotaGraph(location.x, location.y, 1.5, angle, Player1, TRUE);
+	//左
+	DrawLine(location.x - 30, location.y + 80, location.x -30, location.y - 30,GetColor(0, 255, 0), FALSE);
+	//右
+	DrawLine(location.x + 30, location.y + 80, location.x + 30, location.y - 30, GetColor(0, 255, 0), FALSE);
 
+	DrawFormatString(100, 100, GetColor(255, 0, 0), "flg:%d", flg);
 	////バリアが生成されていたら、描画を行う
 	//if (barrier != nullptr)
 	//{
@@ -224,7 +231,7 @@ void Player::Movement()
 	
 
 	//十字移動処理
-	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_LEFT) || PAD_INPUT::OnPressed2(XINPUT_BUTTON_DPAD_LEFT))
+	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_LEFT))
 	{
 		move += Vector2D(-1.0f, 0.0f);
 		angle = -DX_PI_F / 18;
@@ -265,5 +272,32 @@ void Player::Acceleration()
 	if (PAD_INPUT::OnButton1(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f)
 	{
 		speed += 1.0f;
+	}
+}
+void Player::Hit()
+{
+	//左幅
+	int playerX1 = location.x - 30;
+	//右幅
+	int playerX2 = location.x + 30;
+	//上幅
+	int playerY1 = location.y + 80;
+	//下幅
+	int playerY2 = location.y - 80;
+
+	//プレイヤー２
+	//左幅
+	int player2X1 = Player2::X2 - 30;
+	//右幅
+	int player2X2 = Player2::X2 + 30;
+	//上幅
+	int player2Y1 = Player2::Y2 + 80;
+	//下幅
+	int player2Y2 = Player2::Y2 - 80;
+
+	if (playerX1 == player2X2  && playerY1 == player2Y1 && playerY2 == player2Y2 ||  //左
+		playerX2 == player2X1 &&  playerY1 == player2Y1 && playerY2 == player2Y2)    //右
+	{
+		flg = 1;
 	}
 }

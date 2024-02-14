@@ -2,14 +2,15 @@
 #include "DxLib.h"
 #include <math.h>
 #include"Player.h"
+#include"Player2.h"6
 #include "Item.h"
 
 GameMainScene::GameMainScene() : back_ground(NULL),
-barrier_image(NULL), mileage(0)/*player(nullptr)*/
+barrier_image(NULL), mileage(0),mileage2(0)/*player(nullptr)*/
 {
 	
 	player = new Player();
-
+	player2 = new Player2();
 		//画像の読み込み
 	back_ground = LoadGraph("Resource/images/back2.png");
 	barrier_image = LoadGraph("Resource/images/barrier.png");
@@ -70,9 +71,11 @@ AbstractScene* GameMainScene::Update()
 {
 	//プレイヤーの更新
 	player->Update();
-
+	player2->Update();
 	//移動処理の更新
 	mileage += (int)player->GetSpeed() + 5;
+	//移動処理の更新
+	mileage2 += (int)player2->GetSpeed() + 5;
 
 	
 
@@ -97,6 +100,10 @@ void GameMainScene::Draw() const
 
 	//プレイヤーの描画
 	player->Draw();
+	
+	//プレイヤー２の描画
+	player2->Draw();
+
 
 	//UIの描画
 	DrawBox(1000, 0, 1280, 720, GetColor(0, 153, 0), TRUE);

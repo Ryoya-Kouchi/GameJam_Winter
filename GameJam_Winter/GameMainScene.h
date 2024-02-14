@@ -3,6 +3,7 @@
 #include "AbstractScene.h"
 #include "Player.h"
 #include "Item.h"
+#include"Player2.h"
 
 class GameMainScene :public AbstractScene
 {
@@ -10,8 +11,10 @@ private:
 	int back_ground;			//背景画像
 	int barrier_image;			//バリア画像
 	int mileage;				//走行距離
+	int mileage2;
 	int enemy_count[3];			//通り過ぎた敵カウント
 	Player* player;				//プレイヤー
+	Player2* player2;
 	Item* item;
 
 public:

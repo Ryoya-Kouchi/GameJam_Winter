@@ -22,6 +22,7 @@ private:
 	int input_margin;
 	int stick_y1;
 	int stick_x1;
+	int flg = 0;
 public:
 	Player();
 	~Player();
@@ -45,5 +46,5 @@ public:
 private:
 	void Movement();				//ˆÚ“®ˆ—
 	void Acceleration();			//‰Á‘¬ˆ—
-
+	void Hit();
 };
