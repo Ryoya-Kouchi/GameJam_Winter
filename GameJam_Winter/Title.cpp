@@ -77,12 +77,18 @@ AbstractScene* TitleScene::Update()
 		switch (current_select)
 		{
 		case TITLE_MENU::GAME_START:
+			// タイトルBGMを止めます
+			StopSoundFile();
 			return new GameMainScene();
 			break;
 		case TITLE_MENU::GAME_HELP:
+			// タイトルBGMを止めます
+			StopSoundFile();
 			return new HelpScene();
 			break;
 		case TITLE_MENU::GAME_END:
+			// タイトルBGMを止めます
+			StopSoundFile();
 			return nullptr;
 			break;
 		default:
