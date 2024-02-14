@@ -74,8 +74,8 @@ void GameMainScene::Draw() const
 
 	//
 
-	////ƒvƒŒƒCƒ„[‚Ì•`‰æ
-	//player->Draw();
+	//ƒvƒŒƒCƒ„[‚Ì•`‰æ
+	player->Draw();
 
 	////UI‚Ì•`‰æ
 	//DrawBox(500, 0, 640, 480, GetColor(0, 153, 0), TRUE);

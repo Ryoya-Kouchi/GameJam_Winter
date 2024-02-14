@@ -116,7 +116,7 @@ void TitleScene::Draw() const
 			color = ~color;
 			border_color = ~border_color;
 		}
-		DrawStringToHandle(SCREEN_WIDTH / 2 - 100, i * margin_y + base_y, menu_items[i], color, MenuFont, border_color);
+		//DrawStringToHandle(SCREEN_WIDTH / 2 - 100, i * margin_y + base_y, menu_items[i], color, MenuFont, border_color);
 	}
 	DrawStringToHandle(150, 100, "GameJam_Winter", 0xffffff, MenuFont);
 
