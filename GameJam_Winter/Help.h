@@ -13,6 +13,7 @@ private:
 	int Health;					//Health‰æ‘œ
 	int barrier;				//Barrier‰æ‘œ
 	int Zone;					//Zone‰æ‘œ
+	int Button;					//Bƒ{ƒ^ƒ“‘I‘ð
 
 public:
 	HelpScene();
