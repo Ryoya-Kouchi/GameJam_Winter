@@ -1,0 +1,46 @@
+﻿  Barrier.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  FpsController.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  GameMainScene.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Help.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  InputControl.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\InputControl.cpp(21,6): warning C4101: 'i': unreferenced local variable
+  Item.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  main.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\main.cpp(76,2): warning C4551: function call missing argument list
+  PadInput.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Player.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\Player.cpp(97,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Negit\Videos\GameJam_Winter\Player.cpp(97,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Result.cpp
+  SceneManager.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Stage.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Title.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Mission.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Generating Code...
+  GameJam_Winter.vcxproj -> C:\Users\Negit\Videos\GameJam_Winter\x64\Debug\GameJam_Winter.exe
