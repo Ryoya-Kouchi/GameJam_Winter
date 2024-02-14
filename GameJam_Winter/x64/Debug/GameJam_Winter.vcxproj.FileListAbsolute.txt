@@ -1,3 +1,4 @@
 C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
 C:\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
 C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe

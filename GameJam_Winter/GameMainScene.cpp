@@ -2,16 +2,39 @@
 #include "DxLib.h"
 #include <math.h>
 #include"Player.h"
+#include "Item.h"
 
 GameMainScene::GameMainScene() : back_ground(NULL),
 barrier_image(NULL), mileage(0)/*player(nullptr)*/
 {
 	
 	player = new Player();
+
+		//画像の読み込み
+	back_ground = LoadGraph("Resource/images/back2.png");
+	barrier_image = LoadGraph("Resource/images/barrier.png");
+	
+
+	//エラーチェック
+	if (back_ground == -1)
+	{
+		throw("Resource/images/back.bmpがありません\n");
+	}
+	if (barrier_image == -1)
+	{
+		throw("Resource/images/barrier.pngがありません\n");
+	}
+
+	//オブジェクトの初期化
+	//player->Initialize();
+
 }
 
 GameMainScene::~GameMainScene()
 {
+	//動的確保したオブジェクトを削除する
+	player->Finalize();
+	delete player;
 
 }
 
@@ -48,8 +71,8 @@ AbstractScene* GameMainScene::Update()
 	//プレイヤーの更新
 	player->Update();
 
-	////移動処理の更新
-	//mileage += (int)player->GetSpeed() + 5;
+	//移動処理の更新
+	mileage += (int)player->GetSpeed() + 5;
 
 	
 
@@ -68,25 +91,23 @@ AbstractScene* GameMainScene::Update()
 //描画処理
 void GameMainScene::Draw() const
 {
-	////背景画像の描画
-	//DrawGraph(0, mileage % 480 - 480, back_ground, TRUE);
-	//DrawGraph(0, mileage % 480, back_ground, TRUE);
-
-	//
+	//背景画像の描画
+	DrawGraph(0, mileage % 720 - 720, back_ground, TRUE);
+	DrawGraph(0, mileage % 720, back_ground, TRUE);
 
 	//プレイヤーの描画
 	player->Draw();
 
-	////UIの描画
-	//DrawBox(500, 0, 640, 480, GetColor(0, 153, 0), TRUE);
-	//SetFontSize(16);
-	//
+	//UIの描画
+	DrawBox(1000, 0, 1280, 720, GetColor(0, 153, 0), TRUE);
+	SetFontSize(16);
+	
 	//DrawFormatString(510, 200, GetColor(0, 0, 0), "走行距離");
 	//DrawFormatString(555, 220, GetColor(255, 255, 255), "%08d", mileage / 10);
 	//DrawFormatString(510, 240, GetColor(0, 0, 0), "スピード");
 	//DrawFormatString(555, 260, GetColor(255, 255, 255), "%08.1f", player->GetSpeed());
 
-	//
+	
 
 	////燃料ゲージの描画
 	//float fx = 510.0f;
