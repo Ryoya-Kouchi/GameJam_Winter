@@ -12,6 +12,9 @@ TitleScene::TitleScene()
 	//MenuFont = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 32, 1, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 3);
 	//画像読み込み
     background_image = LoadGraph("Resource/images/Title.png");
+	menu_image_Start = LoadGraph("Resource/images/start_m.bmp");
+	menu_image_Help  = LoadGraph("Resource/images/help_m.bmp");
+	menu_image_End   = LoadGraph("Resource/images/end_m.bmp");
 	//	//エラーチェック
 	if (background_image == -1)
 	{
@@ -65,7 +68,6 @@ AbstractScene* TitleScene::Update()
 		now_menu = (now_menu + 1) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 	}
 
-
 	if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_A) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_A) == true))
 	{
 		input_margin = 0;
@@ -94,42 +96,55 @@ AbstractScene* TitleScene::Update()
 //描画処理
 void TitleScene::Draw() const
 {
-
 	//タイトル画像の描画
-	DrawGraph(0, 0, background_image, FALSE);
-	
+	DrawGraph(0, 0, background_image, TRUE);
+
+	// 点滅処理用の変数
+	static int BrinkCounter;
+
+	// 点滅用の変数に 1 を足す
+	BrinkCounter++;
+
+	// 点滅用の変数が 60 になっていたら 0 にする
+	if (BrinkCounter == 60)
+	{
+		BrinkCounter = 0;
+	}
+
+	//DrawFormatString(100, 100, GetColor(255, 255, 255), "%d", BrinkCounter);
+
 	for (int i = 0; i < static_cast<int>(TITLE_MENU::TITLE_SIZE); i++)
 	{
-		// 文字列の最小Y座標
-		const int base_y = 200;
-
-		// 文字列のY座標間隔
-		const int margin_y = 100;
-
-		// 文字色
-		int color = 0xFFFFFF;
-		// 文字外枠色
-		int border_color = 0x000000;
-
 		// カーソルが合っている場合、文字色と文字外枠色を反転させる
 		if (now_menu == i) {
-			color = ~color;
-			border_color = ~border_color;
+			// 点滅用の変数の値が 30 未満のときだけSTART,HELP,ENDを描画する
+			if (BrinkCounter < 30)
+			{
+				if (now_menu == 0) {
+					SetFontSize(90);
+					DrawString(100, 250, "    START  ", GetColor(255, 255, 255));
+				}
+				if (now_menu == 1) {
+					SetFontSize(90);
+					DrawString(100, 400, "    HELP   ", GetColor(255, 255, 255));
+				}
+				if (now_menu == 2) {
+					SetFontSize(90);
+					DrawString(100, 550, "    END    ", GetColor(255, 255, 255));
+				}
+			}
+				if (now_menu != 0) {
+					SetFontSize(90);
+					DrawString(100, 250, "    START  ", GetColor(255, 255, 255));
+				}
+				if (now_menu != 1) {
+					SetFontSize(90);
+					DrawString(100, 400, "    HELP   ", GetColor(255, 255, 255));
+				}
+				if (now_menu  != 2) {
+					SetFontSize(90);
+					DrawString(100, 550, "    END    ", GetColor(255, 255, 255));
+				}
 		}
-		DrawStringToHandle(SCREEN_WIDTH / 2 - 100, i * margin_y + base_y, menu_items[i], color, MenuFont, border_color);
 	}
-	DrawStringToHandle(150, 100, "GameJam_Winter", 0xffffff, MenuFont);
-
 }
-
-////終了時処理
-//void TitleScene::Finalize()
-//{
-//	
-//}
-
-////現在のシーン情報を取得
-//eAbstractSceneType TitleScene::GetNowScene() const
-//{
-//	return eAbstractSceneType::E_TITLE;
-//}
