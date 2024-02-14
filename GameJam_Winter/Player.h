@@ -18,6 +18,7 @@ private:
 	int barrier_count;		//バリアの枚数
 	Barrier* barrier;		//バリア
 
+	int Player1;
 public:
 	Player();
 	~Player();
