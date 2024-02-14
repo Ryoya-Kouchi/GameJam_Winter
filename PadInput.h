@@ -35,8 +35,8 @@ public:
 	static void UpdateKey()
 	{
 		// “ü—ÍƒL[æ“¾
-		GetJoypadXInputState(DX_INPUT_KEY_PAD1, &Input1);
-		GetJoypadXInputState(DX_INPUT_KEY_PAD2, &Input2);
+		GetJoypadXInputState(DX_INPUT_PAD1, &Input1);
+		GetJoypadXInputState(DX_INPUT_PAD2, &Input2);
 		for (int i = 0; i < BUTTONS; i++)
 		{
 			OldKey1[i] = NowKey1[i];
