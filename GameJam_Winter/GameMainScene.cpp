@@ -26,7 +26,7 @@ barrier_image(NULL), mileage(0)/*player(nullptr)*/
 	}
 
 	//オブジェクトの初期化
-	player->Initialize();
+	//player->Initialize();
 
 }
 
