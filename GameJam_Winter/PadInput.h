@@ -16,11 +16,11 @@ class PAD_INPUT
 private:
 	static char NowKey1[BUTTONS]; //今回の入力キー
 	static char OldKey1[BUTTONS]; //前回の入力キー
-	static XINPUT_STATE Input1; //パッド
+	static XINPUT_STATE Input1; //1Pパッド
 	static Stick Rstick1; //右スティック
 	static Stick Lstick1; //左スティック
 
-	static XINPUT_STATE Input2; //パッド
+	static XINPUT_STATE Input2; //2Pパッド
 	static char NowKey2[BUTTONS]; //今回の入力キー
 	static char OldKey2[BUTTONS]; //前回の入力キー
 	static Stick Rstick2; //右スティック
