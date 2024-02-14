@@ -2,6 +2,7 @@
 
 #include "AbstractScene.h"
 #include "Player.h"
+#include "Item.h"
 
 class GameMainScene :public AbstractScene
 {
@@ -11,6 +12,7 @@ private:
 	int mileage;				//走行距離
 	int enemy_count[3];			//通り過ぎた敵カウント
 	Player* player;				//プレイヤー
+	Item* item;
 
 public:
 	GameMainScene();

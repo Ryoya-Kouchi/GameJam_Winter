@@ -1,1 +1,20 @@
-﻿  GameJam_Winter.vcxproj -> C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
+﻿  GameMainScene.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  Item.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  Player.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(97,36): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(97,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Title.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  main.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\main.cpp(76,2): warning C4551: 関数呼び出しに引数リストがありません。
+  コードを生成中...
+  GameJam_Winter.vcxproj -> C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
