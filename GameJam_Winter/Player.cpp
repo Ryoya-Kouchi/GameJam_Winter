@@ -5,6 +5,8 @@
 Player::Player() :is_active(false), image(NULL), location(0.0f), box_size(0.0f),
 angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullptr)
 {
+		Player1 = LoadGraph("Resource/images/Player1.bmp");
+
 
 }
 
@@ -26,10 +28,12 @@ void Player::Initialize()
 	barrier_count = 3;
 
 	//画像読み込み
-	image = LoadGraph("Resource/images/car1pol.bmp");
+	//image = LoadGraph("Resource/images/ca.bmp");
+
+	Player1 = LoadGraph("Resource/images/Player1.bmp");
 
 	//エラーチェック
-	if (image == -1)
+	if (Player1 == -1)
 	{
 		throw("Resource/image/car1pol.bmpがありません\n");
 	}
@@ -90,13 +94,13 @@ void Player::Update()
 void Player::Draw()
 {
 	//プレイヤー画像の描画
-	DrawRotaGraphF(location.x, location.y, 1.0, angle, image, TRUE);
+	DrawRotaGraph(location.x, location.y, 1.0, angle, Player1, TRUE);
 
-	//バリアが生成されていたら、描画を行う
-	if (barrier != nullptr)
-	{
-		barrier->Draw(this->location);
-	}
+	////バリアが生成されていたら、描画を行う
+	//if (barrier != nullptr)
+	//{
+	//	barrier->Draw(this->location);
+	//}
 }
 
 //終了時処理
