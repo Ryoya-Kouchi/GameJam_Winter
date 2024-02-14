@@ -224,7 +224,7 @@ void Player::Movement()
 	
 
 	//è\éöà⁄ìÆèàóù
-	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_LEFT))
+	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_LEFT) || PAD_INPUT::OnPressed2(XINPUT_BUTTON_DPAD_LEFT))
 	{
 		move += Vector2D(-1.0f, 0.0f);
 		angle = -DX_PI_F / 18;
