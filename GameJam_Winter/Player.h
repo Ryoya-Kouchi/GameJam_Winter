@@ -2,7 +2,7 @@
 
 #include "Vector2D.h"
 #include "Barrier.h"
-
+#include"PadInput.h"
 
 class Player
 {
@@ -19,6 +19,9 @@ private:
 	Barrier* barrier;		//ƒoƒŠƒA
 
 	int Player1;
+	int input_margin;
+	int stick_y1;
+	int stick_x1;
 public:
 	Player();
 	~Player();

@@ -1,23 +1,14 @@
 #include "Player.h"
 #include "PadInput.h"
 #include "Dxlib.h"
-
+#include<iostream>
 Player::Player() :is_active(false), image(NULL), location(0.0f), box_size(0.0f),
 angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullptr)
 {
-		Player1 = LoadGraph("Resource/images/Player1.bmp");
+	//画像読込
+	Player1 = LoadGraph("Resource/images/Player1.bmp");
 
 
-}
-
-Player::~Player()
-{
-
-}
-
-//初期化処理
-void Player::Initialize()
-{
 	is_active = true;
 	location = Vector2D(320.0f, 380.0f);
 	box_size = Vector2D(31.0f, 60.0f);
@@ -26,18 +17,36 @@ void Player::Initialize()
 	hp = 1000;
 	fuel = 20000;
 	barrier_count = 3;
-
-	//画像読み込み
-	//image = LoadGraph("Resource/images/ca.bmp");
-
-	Player1 = LoadGraph("Resource/images/Player1.bmp");
-
-	//エラーチェック
-	if (Player1 == -1)
-	{
-		throw("Resource/image/car1pol.bmpがありません\n");
-	}
 }
+
+Player::~Player()
+{
+
+}
+
+//初期化処理
+//void Player::Initialize()
+//{
+//	is_active = true;
+//	location = Vector2D(320.0f, 380.0f);
+//	box_size = Vector2D(31.0f, 60.0f);
+//	angle = 0.0f;
+//	speed = 3.0f;
+//	hp = 1000;
+//	fuel = 20000;
+//	barrier_count = 3;
+//
+//	//画像読み込み
+//	//image = LoadGraph("Resource/images/ca.bmp");
+//
+//	Player1 = LoadGraph("Resource/images/Player1.bmp");
+//
+//	//エラーチェック
+//	if (Player1 == -1)
+//	{
+//		throw("Resource/image/car1pol.bmpがありません\n");
+//	}
+//}
 
 //更新処理
 void Player::Update()
@@ -175,6 +184,44 @@ void Player::Movement()
 {
 	Vector2D move = Vector2D(0.0f);
 	angle = 0.0f;
+
+
+	// 操作間隔時間
+	const int max_input_margin = 10;
+	// スティックの感度
+	const int stick_sensitivity = 20000;
+
+	int stick_y1 = PAD_INPUT::GetLStick1().ThumbY;
+	int stick_x1 = PAD_INPUT::GetLStick1().ThumbX;
+	
+		if (std::abs(stick_y1) > stick_sensitivity ) {
+			// スティックが上に移動した場合
+			if (stick_y1 > 0) {
+				move += Vector2D(0.0f, -1.0f);
+			}
+			//スティックが下に移動した場合
+			else if (stick_y1 < 0 ) {
+				move += Vector2D(0.0f, 1.0f);
+			}
+			input_margin = 0;
+		}
+	
+		if (std::abs(stick_x1) > stick_sensitivity) {
+			// スティックが右に移動した場合
+			if (stick_x1 > 0) {
+				move += Vector2D(1.0f, 0.0f);
+				angle = DX_PI_F / 18;
+			}
+			//スティックが左に移動した場合
+			else if (stick_x1 < 0 ) {
+				move += Vector2D(-1.0f, 0.0f);
+				angle = -DX_PI_F / 18;
+			}
+	}
+	location += move;
+
+
+	
 
 	//十字移動処理
 	if (PAD_INPUT::OnPressed1(XINPUT_BUTTON_DPAD_LEFT))
