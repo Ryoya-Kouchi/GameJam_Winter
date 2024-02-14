@@ -37,7 +37,7 @@ int WINAPI WinMain(_In_ HINSTANCE ih, _In_opt_ HINSTANCE ioh, _In_ LPSTR il, _In
 
 	try
 	{
-		sceneMng = new SceneManager((AbstractScene*)new GameMainScene());
+		sceneMng = new SceneManager((AbstractScene*)new TitleScene());
 
 	}
 	catch (const char* err)
