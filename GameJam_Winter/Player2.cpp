@@ -4,7 +4,7 @@
 #include<iostream>
 
 float Player2::X2;	//player2のｘ座標
-float Player2::Y2;	//player2のｙ座標
+
 //float Vector2D::x;
 Player2::Player2():is_active(false), image(NULL), /*location2(0.0f)*/  box_size(0.0f),
 angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullptr)
@@ -55,18 +55,51 @@ Player2::~Player2()
 //更新処理
 void Player2::Update()
 {
+	int x2;
 	//操作不可能状態であれば、自身を回転させる
 	if (!is_active)
 	{
 		angle += DX_PI_F / 24.0f;
-		speed = 2.0f;
+		speed = 1.0f;
+
 		if (angle >= DX_PI_F * 4.0f)
 		{
-			is_active = true;
+			//右から当たった場合
+			if (Player::x <= location2.x) {
+				x2 = location2.x + 300.0f;
+				while (location2.x <= x2) {
+					move += Vector2D(+30.0, 0.0f);
+					location2 += move;
+					if (location2.x <= x2 || location2.x >= x2)
+					{
+						location2.x = x2;
+						break;
+					}
+				}
+				if (location2.x == x2) {
+					is_active = true;
+				}
+			}
+			//左から当たった場合
+			else if (Player::x >= location2.x) {
+				x2 = location2.x - 300.0f;
+
+				while (location2.x >= x2) {
+					move += Vector2D(-30.0, 0.0f);
+					location2 += move;
+					if (location2.x <= x2 || location2.x >= x2)
+					{
+						location2.x = x2;
+						break;
+					}
+				}
+				if (location2.x == x2) {
+					is_active = true;
+				}
+			}
 		}
 		return;
 	}
-
 	//燃料の消費
 	fuel -= speed;
 
@@ -74,10 +107,23 @@ void Player2::Update()
 	Movement();
 
 	X2 = location2.x;
-	Y2 = location2.y;
+
 
 	//加減速処理
 	Acceleration();
+
+	if (location2.x < 0) {
+		location2.x = 0;
+	}
+	if (location2.x > 1000) {
+		location2.x = 1000;
+	}
+	if (location2.y < 0) {
+		location2.y = 0;
+	}
+	if (location2.y > 720) {
+		location2.y = 720;
+	}
 
 	if (PAD_INPUT::OnButton2(XINPUT_BUTTON_START))
 	{
@@ -93,6 +139,7 @@ void Player2::Update()
 			barrier = new Barrier;
 		}
 	}
+
 
 	//バリアが生成されていたら、更新を行う
 	if (barrier != nullptr)
@@ -111,11 +158,6 @@ void Player2::Draw()
 {
 	//プレイヤー画像の描画
 	DrawRotaGraph(location2.x, location2.y, 1.5, angle, player2, TRUE);
-
-	DrawLine(X2 - 30, Y2 + 80, X2 - 30, Y2 - 30, GetColor(0, 255, 0), FALSE);
-	//右
-	DrawLine(X2 + 30, Y2 + 80, X2 + 30, Y2 - 30, GetColor(0, 255, 0), FALSE);
-
 
 	////バリアが生成されていたら、描画を行う
 	//if (barrier != nullptr)
@@ -210,12 +252,10 @@ void Player2::Movement()
 		// スティックが上に移動した場合
 		if (stick_y2 > 0) {
 			move2 += Vector2D(0.0f, -2.0f);
-			Y2 -= 2.0f;
 		}
 		//スティックが下に移動した場合
 		else if (stick_y2 < 0) {
 			move2 += Vector2D(0.0f, 2.0f);
-			Y2 += 2.0f;
 		}
 		input_margin = 0;
 	}

@@ -23,7 +23,7 @@ private:
 	int stick_y1;
 	int stick_x1;
 	int flg = 0;
-	bool Moveflg = TRUE;
+	Vector2D move = Vector2D(0.0f);
 public:
 	Player();
 	~Player();
@@ -34,6 +34,7 @@ public:
 	void Finalize();		//終了時処理
 
 public:
+	static float x;
 	void SetActive(bool flg);		//有効フラグ設定
 	void DecreaseHp(float value);	//体力減少処理
 	Vector2D GetLocation() const;	//位置座標取得

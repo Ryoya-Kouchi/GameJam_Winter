@@ -3,6 +3,8 @@
 #include "Dxlib.h"
 #include<iostream>
 #include"Player2.h"
+
+float Player::x;
 Player::Player() :is_active(false), image(NULL), location(0.0f), box_size(0.0f),
 angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullptr)
 {
@@ -15,7 +17,7 @@ angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullpt
 	box_size = Vector2D(31.0f, 60.0f);
 	angle = 0.0f;
 	speed = 3.0f;
-	hp = 1000;
+	hp = 10000;
 	fuel = 20000;
 	barrier_count = 3;
 }
@@ -52,15 +54,48 @@ Player::~Player()
 //更新処理
 void Player::Update()
 {
-
+	int x;
 	//操作不可能状態であれば、自身を回転させる
 	if (!is_active)
 	{
 		angle += DX_PI_F / 24.0f;
 		speed = 1.0f;
+		
 		if (angle >= DX_PI_F * 4.0f)
-		{
-			is_active = true;
+		{ 
+			//右から当たった場合
+			if (Player2::X2 <= location.x) {
+				 x = location.x + 300.0f;
+				 while (location.x <= x) {
+					 move += Vector2D(+30.0, 0.0f);
+					 location += move;
+					 if (location.x <= x || location.x >= x)
+					 {
+						 location.x = x;
+						 break;
+					 }
+				 }
+				 if (location.x == x) {
+					 is_active = true;
+				 }
+			}
+			//左から当たった場合
+			else if (Player2::X2 >= location.x) {
+				x = location.x - 300.0f;
+
+				while (location.x >= x) {
+					move += Vector2D(-30.0, 0.0f);
+					location += move;
+					if (location.x <= x || location.x >= x)
+					{
+						location.x = x;
+						break;
+					}
+				}
+				if (location.x == x) {
+					is_active = true;
+				}
+			}
 		}
 		return;
 	}
@@ -68,15 +103,24 @@ void Player::Update()
 	//燃料の消費
 	fuel -= speed;
 	//移動処理
-		 if (Moveflg == TRUE) {
-			 Movement();
-		 }
+		
+	Movement();
+	x = location.x;
 
 	//加減速処理
 	Acceleration();
-
-	
-	
+	if (location.x < 0) {
+		location.x = 0;
+	}
+	if (location.x > 1000) {
+		location.x = 1000;
+	}
+	if (location.y < 0) {
+		location.y = 0;
+	}
+	if (location.y > 720) {
+		location.y = 720;
+	}
 	if (PAD_INPUT::OnButton1(XINPUT_BUTTON_START))
 	{
 		is_active = false;
@@ -109,6 +153,9 @@ void Player::Draw()
 {
 	//プレイヤー画像の描画
 	DrawRotaGraph(location.x, location.y, 1.5, angle, Player1, TRUE);
+	SetFontSize(15);
+	DrawFormatString(100, 0, GetColor(255, 0, 0), "x:%f", location.x);
+	DrawFormatString(200, 0, GetColor(255, 0, 0), "x:%f", location.x - 300.0f);
 	
 	////バリアが生成されていたら、描画を行う
 	//if (barrier != nullptr)
