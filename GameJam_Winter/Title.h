@@ -22,6 +22,8 @@ private:
 	int now_menu;                   //現在選択してるメニュー
 	int MenuFont;                   //メニュー用のフォント
 	int input_margin;               //操作時間間隔
+	int SoundHandle_Titlebgm;      //タイトルBGM保存用変数
+	int SoundHandle_StickSE;          //スティック操作時SE保存用変数
 
 public:
 	TitleScene();

@@ -9,7 +9,7 @@
 GameMainScene::GameMainScene() : back_ground(NULL),
 barrier_image(NULL), mileage(0),mileage2(0),player(nullptr)
 {
-	gaoldistance = 1000;
+	gaoldistance = 10000;
 	player = new Player();
 	player2 = new Player2();
 		//画像の読み込み
@@ -30,6 +30,8 @@ barrier_image(NULL), mileage(0),mileage2(0),player(nullptr)
 	//ゲームメイン遷移時ゲームメイン用BGMをループで流す
 	PlaySoundFile("Resource/BGM/maou_bgm_neorock70.mp3", DX_PLAYTYPE_LOOP);
 
+	//ゲームメイン遷移時ゲームメイン用SEをループで流す
+	//PlaySoundFile("Resource/SE/走っている音.mp3", DX_PLAYTYPE_LOOP);
 	//オブジェクトの初期化
 	//player->Initialize();
 
@@ -100,7 +102,7 @@ AbstractScene* GameMainScene::Update()
 	//プレイヤーの燃料か体力が０未満なら、リザルトに遷移する
 	if (player->GetHp() < 0 &&  1050 >=fxe + (player->GetHp() * 100 / 10000) || gaoldistance <= 0)
 	{
-		// ゲームメインBGMを止める
+		//BGM,SEを止める
 		StopSoundFile();
 		return new TitleScene();
 	}

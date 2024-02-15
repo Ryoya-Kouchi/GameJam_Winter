@@ -1,5 +1,21 @@
-﻿  GameMainScene.cpp
+﻿  End.cpp
+C:\dxlib\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\dxlib\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  GameMainScene.cpp
 C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': ignored on left of 'Vector2D' when no variable is declared
 C:\dxlib\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
 C:\dxlib\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Help.cpp
+C:\dxlib\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\dxlib\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  Title.cpp
+C:\dxlib\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\dxlib\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': ignored on left of 'Vector2D' when no variable is declared
+  main.cpp
+C:\dxlib\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\dxlib\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': ignored on left of 'Vector2D' when no variable is declared
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\main.cpp(76,2): warning C4551: function call missing argument list
+  Generating Code...
   GameJam_Winter.vcxproj -> C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe

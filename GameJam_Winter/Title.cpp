@@ -23,8 +23,12 @@ TitleScene::TitleScene()
 	}
 	now_menu = static_cast<int>(TITLE_MENU::GAME_START);
 	input_margin = 0;
-	//タイトル遷移時タイトル用BGMをループで流す
-	PlaySoundFile("Resource/BGM/maou_bgm_neorock76.mp3", DX_PLAYTYPE_LOOP);
+	//タイトル遷移時タイトル用BGMをSoundHHandle_Titlebgmに保存します
+	SoundHandle_Titlebgm = LoadSoundMem("Resource/BGM/maou_bgm_neorock76.mp3");
+	//スティック操作時SEをSoundHHandle_Stickに保存します
+	SoundHandle_StickSE = LoadSoundMem("Resource/SE/カーソル移動11.mp3");
+	// タイトルBGMをループ再生
+	PlaySoundMem(SoundHandle_Titlebgm, DX_PLAYTYPE_LOOP);
 }
 
 TitleScene::~TitleScene()
@@ -49,11 +53,15 @@ AbstractScene* TitleScene::Update()
 		if (std::abs(stick_y1) > stick_sensitivity || std::abs(stick_y2) > stick_sensitivity) {
 			// スティックが上に移動した場合
 			if (stick_y1 > 0 || stick_y2 > 0) {
+				// スティックSEをバックグラウンド再生
+				PlaySoundMem(SoundHandle_StickSE, DX_PLAYTYPE_BACK);
 				// メニュー選択肢を一つ前に移動
 				now_menu = (now_menu - 1 + static_cast<int>(TITLE_MENU::TITLE_SIZE)) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 			}
 			//スティックが下に移動した場合
 			else if (stick_y1 < 0 || stick_y2 < 0) {
+				// スティックSEをバックグラウンド再生
+				PlaySoundMem(SoundHandle_StickSE, DX_PLAYTYPE_BACK);
 				// メニュー選択肢を一つ次に移動
 				now_menu = (now_menu + 1) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 			}
@@ -62,11 +70,15 @@ AbstractScene* TitleScene::Update()
 	}
 	// 十字キー上に移動した場合
 	if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_DPAD_UP) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_DPAD_UP) == true)) {
+		// スティックSEをバックグラウンド再生
+		PlaySoundMem(SoundHandle_StickSE, DX_PLAYTYPE_BACK);
 		// メニュー選択肢を一つ前に移動
 		now_menu = (now_menu - 1 + static_cast<int>(TITLE_MENU::TITLE_SIZE)) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 	}
 	//十字キー下に移動した場合
 	else if (PAD_INPUT::GetNowKey1(XINPUT_BUTTON_DPAD_DOWN) && (PAD_INPUT::OnButton1(XINPUT_BUTTON_DPAD_DOWN) == true)) {
+		// スティックSEをバックグラウンド再生
+		PlaySoundMem(SoundHandle_StickSE, DX_PLAYTYPE_BACK);
 		// メニュー選択肢を一つ次に移動
 		now_menu = (now_menu + 1) % static_cast<int>(TITLE_MENU::TITLE_SIZE);
 	}
@@ -79,17 +91,26 @@ AbstractScene* TitleScene::Update()
 		{
 		case TITLE_MENU::GAME_START:
 			// タイトルBGMを止める
-			StopSoundFile();
+			// サウンドハンドルタイトルBGMの削除
+			DeleteSoundMem(SoundHandle_Titlebgm);
+			// サウンドハンドルスティックSEの削除
+			DeleteSoundMem(SoundHandle_StickSE);
 			return new GameMainScene();
 			break;
 		case TITLE_MENU::GAME_HELP:
 			// タイトルBGMを止める
-			StopSoundFile();
+			// サウンドハンドルタイトルBGMの削除
+			DeleteSoundMem(SoundHandle_Titlebgm);
+			// サウンドハンドルスティックSEの削除
+			DeleteSoundMem(SoundHandle_StickSE);
 			return new HelpScene();
 			break;
 		case TITLE_MENU::GAME_END:
 			// タイトルBGMを止める
-			StopSoundFile();
+			// サウンドハンドルタイトル用BGMの削除
+			DeleteSoundMem(SoundHandle_Titlebgm);
+			// サウンドハンドルスティックSEの削除
+			DeleteSoundMem(SoundHandle_StickSE);
 			return new EndScene();
 			break;
 		default:

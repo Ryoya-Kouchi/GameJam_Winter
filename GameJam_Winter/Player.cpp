@@ -155,8 +155,8 @@ void Player::Draw()
 	//プレイヤー画像の描画
 	DrawRotaGraph(location.x, location.y, 1.5, angle, Player1, TRUE);
 	SetFontSize(15);
-	DrawFormatString(100, 0, GetColor(255, 0, 0), "x:%f", location.x);
-	DrawFormatString(200, 0, GetColor(255, 0, 0), "x:%f", location.x - 300.0f);
+	//DrawFormatString(100, 0, GetColor(255, 0, 0), "x:%f", location.x);
+	//DrawFormatString(200, 0, GetColor(255, 0, 0), "x:%f", location.x - 300.0f);
 	
 	////バリアが生成されていたら、描画を行う
 	//if (barrier != nullptr)
