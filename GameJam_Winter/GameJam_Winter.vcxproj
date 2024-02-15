@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Barrier.cpp" />
+    <ClCompile Include="End.cpp" />
     <ClCompile Include="FpsController.cpp" />
     <ClCompile Include="GameMainScene.cpp" />
     <ClCompile Include="Help.cpp" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractScene.h" />
     <ClInclude Include="Barrier.h" />
+    <ClInclude Include="End.h" />
     <ClInclude Include="FpsController.h" />
     <ClInclude Include="GameMainScene.h" />
     <ClInclude Include="Help.h" />

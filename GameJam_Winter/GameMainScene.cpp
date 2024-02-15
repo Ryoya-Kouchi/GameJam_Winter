@@ -2,7 +2,7 @@
 #include "DxLib.h"
 #include <math.h>
 #include"Player.h"
-#include"Player2.h"6
+#include"Player2.h"
 #include "Item.h"
 
 GameMainScene::GameMainScene() : back_ground(NULL),

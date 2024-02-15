@@ -71,6 +71,9 @@
     <ClCompile Include="Player2.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="End.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stage.h">
@@ -120,6 +123,9 @@
     </ClInclude>
     <ClInclude Include="Player2.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="End.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -63,7 +63,7 @@ void HelpScene::Draw() const
 	DrawRotaGraph(710, 90, 0.9, size, barrier, TRUE);
 
 	DrawString(650, 200, "バリア", GetColor(30, 144, 255), 0xffffff);
-	DrawString(590, 240, "一度だけ衝撃から\n守ることができる！", 0xffffff, 0);
+	DrawString(590, 240, "衝撃から守ること\nができる！", 0xffffff, 0);
 
 	//Healthの説明
 	DrawRotaGraph(950, 90, 1.5,size, Health, TRUE);
