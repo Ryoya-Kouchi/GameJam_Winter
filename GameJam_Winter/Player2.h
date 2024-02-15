@@ -35,6 +35,7 @@ public:
 public:
 	static float X2;
 	static float Y2;
+	//static float Vector2D::x;
 	void SetActive(bool flg);		//有効フラグ設定
 	void DecreaseHp(float value);	//体力減少処理
 	Vector2D GetLocation() const;	//位置座標取得
