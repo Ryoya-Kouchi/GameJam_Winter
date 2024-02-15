@@ -301,8 +301,3 @@ void Player::Hit()
 	//	flg = 1;
 	//}
 }
-
-void ItemControl(void)
-{
-
-}

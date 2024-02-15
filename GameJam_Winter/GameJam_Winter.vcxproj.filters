@@ -68,6 +68,9 @@
     <ClCompile Include="PadInput.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stage.h">
@@ -114,6 +117,9 @@
     </ClInclude>
     <ClInclude Include="PadInput.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
