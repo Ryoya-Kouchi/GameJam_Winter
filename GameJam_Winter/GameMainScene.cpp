@@ -4,6 +4,7 @@
 #include"Player.h"
 #include"Player2.h"
 #include "Item.h"
+#include"Title.h"
 
 GameMainScene::GameMainScene() : back_ground(NULL),
 barrier_image(NULL), mileage(0),mileage2(0),player(nullptr)
@@ -91,6 +92,14 @@ AbstractScene* GameMainScene::Update()
 		}
 	}
 
+
+	//プレイヤーの燃料か体力が０未満なら、リザルトに遷移する
+	if (player->GetHp() < 0 &&  1050 >=fxe + (player->GetHp() * 100 / 10000))
+	{
+
+		return new TitleScene();
+	}
+
 			return this;
 }
 
@@ -112,27 +121,42 @@ void GameMainScene::Draw() const
 	DrawBox(1000, 0, 1280, 720, GetColor(0, 153, 0), TRUE);
 	SetFontSize(16);
 	
-	DrawFormatString(510, 200, GetColor(0, 0, 0), "走行距離");
-	DrawFormatString(555, 220, GetColor(255, 255, 255), "%08d", mileage / 10);
-	DrawFormatString(510, 240, GetColor(0, 0, 0), "スピード");
-	DrawFormatString(555, 260, GetColor(255, 255, 255), "%08.1f", player->GetSpeed());
+	DrawFormatString(1050, 200, GetColor(0, 0, 0), "走行距離");
+	DrawFormatString(1105, 220, GetColor(255, 255, 255), "%08d", mileage / 10);
+	DrawFormatString(1050, 240, GetColor(0, 0, 0), "スピード");
+	DrawFormatString(1105, 260, GetColor(255, 255, 255), "%08.1f", player->GetSpeed());
 
 	
+	SetFontSize(30);
+	//燃料・体力ゲージの描画
+	float fx = 1050.0f;
+	float fy = 350.0f;
 
-	//燃料ゲージの描画
-	float fx = 510.0f;
-	float fy = 390.0f;
-	DrawFormatStringF(fx, fy, GetColor(0, 0, 0), "FUEL METER");
-	DrawBoxAA(fx, fy + 20.0f, fx + (player->GetFuel() * 100 / 20000), fy + 40.0f, GetColor(0, 102, 204), TRUE);
-	DrawBoxAA(fx, fy + 20.0f, fx + 100.0f, fy + 40.0f, GetColor(0, 0, 0), FALSE);
+	float fxe = 1150.0f;
+	float fye = 380.0f;
+	
+	fx = 1050.0f;
+	fy = 450.0f;
+	DrawFormatStringF(1050, 370, GetColor(0, 0, 0), "PLAYER1 HP");
+	DrawBoxAA(fx, fy + 20.0f, fxe + (player->GetHp() * 100 / 10000), fye + 40.0f, GetColor(255, 0, 0), TRUE);
+	DrawBoxAA(fx, fy + 20.0f, fxe + 100.0f, fye + 40.0f, GetColor(0, 0, 0), FALSE);
 
-	//体力ゲージの描画
-	fx = 510.0f;
-	fy = 430.0f;
-	DrawFormatStringF(fx, fy, GetColor(0, 0, 0), "PLAYER HP");
-	DrawBoxAA(fx, fy + 20.0f, fx + (player->GetHp() * 100 / 1000), fy + 40.0f, GetColor(255, 0, 0), TRUE);
-	DrawBoxAA(fx, fy + 20.0f, fx + 100.0f, fy + 40.0f, GetColor(0, 0, 0), FALSE);
+	//燃料・体力ゲージの描画
+	float fxx = 1050.0f;
+	float fyy = 550.0f;
+
+	DrawFormatString(1050,300, GetColor(0, 0, 0), "%d", player->GetHp());
+
+	float fxxe = 1150.0f;
+	float fyye = 580.0f;
+	
+	fxx = 1050.0f;
+	fyy = 650.0f;
+	DrawFormatStringF(1050, 570, GetColor(0, 0, 0), "PLAYER2 HP");
+	DrawBoxAA(fxx, fyy + 20.0f, fxxe + (player->GetHp() * 100 / 10000), fyye + 40.0f, GetColor(0, 0, 255), TRUE);
+	DrawBoxAA(fxx, fyy + 20.0f, fxxe + 100.0f, fyye + 40.0f, GetColor(0, 0, 0), FALSE);
 }
+
 
 //終了時処理
 //現在シーン情報を取得

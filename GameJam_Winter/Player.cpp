@@ -97,11 +97,12 @@ void Player::Update()
 				}
 			}
 		}
+
 		return;
 	}
 
 	//”R—¿‚ÌÁ”ï
-	fuel -= speed;
+	hp -= speed;
 	//ˆÚ“®ˆ—
 		
 	Movement();

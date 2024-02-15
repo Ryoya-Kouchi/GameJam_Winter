@@ -19,7 +19,8 @@ private:
 	Player2* player2;
 	Item* item;
 	Enemy** enemy;				//“G
-
+	float fxe = 1150.0f;
+	int flg = 0;
 public:
 	GameMainScene();
 	virtual ~GameMainScene();

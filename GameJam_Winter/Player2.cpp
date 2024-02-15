@@ -18,7 +18,7 @@ angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullpt
 	box_size = Vector2D(32.0f, 60.0f);
 	angle = 0.0f;
 	speed = 3.0f;
-	hp = 2000;
+	hp = 10000;
 	fuel = 20000;
 	barrier_count = 3;
 }
