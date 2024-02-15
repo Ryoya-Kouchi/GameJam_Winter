@@ -1,7 +1,7 @@
 #pragma once
 
 //2次元ベクトルクラス
-class Vector2D
+static class Vector2D
 {
 public:
 	float x;

@@ -77,17 +77,15 @@ AbstractScene* GameMainScene::Update()
 	//移動処理の更新
 	mileage2 += (int)player2->GetSpeed() + 5;
 
-	
+	//当たり判定の確認
+	if (IsHitCheck(player, player2))
+	{
+		player->SetActive(false);
+		player->DecreaseHp(-50.0f);
+		player2->DecreaseHp(-50.0f);
+		player2->SetActive(false);
+	}
 
-	
-
-			////当たり判定の確認
-			//if (IsHitCheck(player))
-			//{
-			//	player->SetActive(false);
-			//	player->DecreaseHp(-50.0f);
-			//	
-			//}
 			return this;
 }
 
@@ -134,6 +132,30 @@ void GameMainScene::Draw() const
 //終了時処理
 //現在シーン情報を取得
 
+bool GameMainScene::IsHitCheck(Player* p, Player2* p2)
+{
+	//プレイヤーがバリアを貼っていたら、当たり判定を無視する
+	if (p->IsBarrier())
+	{
+		return false;
+	}
+
+	//敵情報がなければ、当たり判定を無視する
+	if (p2 == nullptr)
+	{
+		return false;
+	}
+
+	//位置情報の差分を取得
+	Vector2D diff_location = p->GetLocation() - p2->GetLocation();
+
+	//当たり判定サイズの大きさを取得
+	Vector2D box_ex = p->GetBoxSize() + p2->GetBoxSize();
+
+	//子リジョンデータより位置情報の差分が小さいなら、ヒット判定とする
+	return((fabsf(diff_location.x) < box_ex.x) && (fabsf(diff_location.y) < box_ex.y));
+
+}
 
 
 ////当たり判定処理(プレイヤーと敵)

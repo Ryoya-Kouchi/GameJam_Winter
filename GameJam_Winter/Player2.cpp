@@ -5,7 +5,8 @@
 
 float Player2::X2;	//player2‚Ì‚˜À•W
 float Player2::Y2;	//player2‚Ì‚™À•W
-Player2::Player2():is_active(false), image(NULL), location2(0.0f),  box_size(0.0f),
+//float Vector2D::x;
+Player2::Player2():is_active(false), image(NULL), /*location2(0.0f)*/  box_size(0.0f),
 angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullptr)
 {
 	//‰æ‘œ“Ç
@@ -20,9 +21,6 @@ angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullpt
 	hp = 2000;
 	fuel = 20000;
 	barrier_count = 3;
-	X2 = location2.x;
-	Y2 = location2.y;
-
 }
 
 Player2::~Player2()
@@ -74,6 +72,9 @@ void Player2::Update()
 
 	//ˆÚ“®ˆ—
 	Movement();
+
+	X2 = location2.x;
+	Y2 = location2.y;
 
 	//‰ÁŒ¸‘¬ˆ—
 	Acceleration();

@@ -52,7 +52,7 @@ Player::~Player()
 //更新処理
 void Player::Update()
 {
-	Hit();
+
 	//操作不可能状態であれば、自身を回転させる
 	if (!is_active)
 	{
@@ -67,13 +67,16 @@ void Player::Update()
 
 	//燃料の消費
 	fuel -= speed;
-
 	//移動処理
-	Movement();
+		 if (Moveflg == TRUE) {
+			 Movement();
+		 }
 
 	//加減速処理
 	Acceleration();
 
+	
+	
 	if (PAD_INPUT::OnButton1(XINPUT_BUTTON_START))
 	{
 		is_active = false;
@@ -106,12 +109,7 @@ void Player::Draw()
 {
 	//プレイヤー画像の描画
 	DrawRotaGraph(location.x, location.y, 1.5, angle, Player1, TRUE);
-	//左
-	DrawLine(location.x - 30, location.y + 80, location.x -30, location.y - 30,GetColor(0, 255, 0), FALSE);
-	//右
-	DrawLine(location.x + 30, location.y + 80, location.x + 30, location.y - 30, GetColor(0, 255, 0), FALSE);
-
-	DrawFormatString(100, 100, GetColor(255, 0, 0), "flg:%d", flg);
+	
 	////バリアが生成されていたら、描画を行う
 	//if (barrier != nullptr)
 	//{
@@ -274,30 +272,4 @@ void Player::Acceleration()
 		speed += 1.0f;
 	}
 }
-void Player::Hit()
-{
-	//左幅
-	int playerX1 = location.x - 30;
-	//右幅
-	int playerX2 = location.x + 30;
-	//上幅
-	int playerY1 = location.y + 80;
-	//下幅
-	int playerY2 = location.y - 80;
 
-	//プレイヤー２
-	//左幅
-	int player2X1 = Player2::X2 - 30;
-	//右幅
-	int player2X2 = Player2::X2 + 30;
-	//上幅
-	int player2Y1 = Player2::Y2 + 80;
-	//下幅
-	int player2Y2 = Player2::Y2 - 80;
-
-	if (playerX1 == player2X2  && playerY1 == player2Y1 && playerY2 == player2Y2 ||  //左
-		playerX2 == player2X1 &&  playerY1 == player2Y1 && playerY2 == player2Y2)    //右
-	{
-		flg = 1;
-	}
-}
