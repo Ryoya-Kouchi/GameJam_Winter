@@ -3,6 +3,7 @@
 #include"DxLib.h"
 #include<iostream>
 #include"Help.h"
+#include"End.h"
 #include"GameMainScene.h"
 
 #define SCREEN_WIDTH 1280
@@ -89,7 +90,7 @@ AbstractScene* TitleScene::Update()
 		case TITLE_MENU::GAME_END:
 			// タイトルBGMを止めます
 			StopSoundFile();
-			return nullptr;
+			return new EndScene();
 			break;
 		default:
 			printfDx("未実装な機能です。\n");
