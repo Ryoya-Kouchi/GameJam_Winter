@@ -3,7 +3,7 @@
 #include "Vector2D.h"
 #include "Barrier.h"
 #include"PadInput.h"
-#define ITEM_MAX 3
+#include"Player2.h"
 
 class Player
 {
@@ -18,12 +18,12 @@ private:
 	float fuel;				//燃料
 	int barrier_count;		//バリアの枚数
 	Barrier* barrier;		//バリア
-
 	int Player1;
 	int input_margin;
 	int stick_y1;
 	int stick_x1;
 	int flg = 0;
+	bool Moveflg = TRUE;
 public:
 	Player();
 	~Player();
@@ -43,8 +43,8 @@ public:
 	float GetHp() const;			//体力取得
 	int GetBarriarCount() const;	//バリアの枚数取得
 	bool IsBarrier() const;			//バリア有効か？を取得
+
 private:
 	void Movement();				//移動処理
 	void Acceleration();			//加速処理
-	void Hit();
 };

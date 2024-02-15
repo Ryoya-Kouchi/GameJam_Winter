@@ -1,4 +1,22 @@
 ﻿  GameMainScene.cpp
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': 変数が何も宣言されていないときは、'Vector2D' の左辺を無視します。
 C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
 C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  GameJam_Winter.vcxproj -> C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\GameMainScene.cpp(5,9): warning C4067: プリプロセッサ ディレクティブの後に余分な文字がありました - 改行が必要です
+  Player.cpp
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': 変数が何も宣言されていないときは、'Vector2D' の左辺を無視します。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\Player.cpp(111,36): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\Player.cpp(111,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Title.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': 変数が何も宣言されていないときは、'Vector2D' の左辺を無視します。
+  main.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': 変数が何も宣言されていないときは、'Vector2D' の左辺を無視します。
+C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\main.cpp(76,2): warning C4551: 関数呼び出しに引数リストがありません。
+  コードを生成中...
+  GameJam_Winter.vcxproj -> C:\GameJam_Winter\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
