@@ -4,6 +4,7 @@
 #include "Vector2D.h"
 #include "Barrier.h"
 #include"PadInput.h"
+#include"Player.h"
 
 class Player2
 {
@@ -18,11 +19,11 @@ private:
 	float fuel;				//燃料
 	int barrier_count;		//バリアの枚数
 	Barrier* barrier;		//バリア
-	
 	int player2;
 	int input_margin;
 	int stick_y2;
 	int stick_x2;
+	Vector2D move = Vector2D(0.0f);
 public:
 	Player2();
 	~Player2();
@@ -34,7 +35,6 @@ public:
 
 public:
 	static float X2;
-	static float Y2;
 	//static float Vector2D::x;
 	void SetActive(bool flg);		//有効フラグ設定
 	void DecreaseHp(float value);	//体力減少処理
