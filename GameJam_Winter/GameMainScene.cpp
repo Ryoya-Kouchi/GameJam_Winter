@@ -2,7 +2,7 @@
 #include "DxLib.h"
 #include <math.h>
 #include"Player.h"
-#include"Player2.h"6
+#include"Player2.h"
 #include "Item.h"
 
 GameMainScene::GameMainScene() : back_ground(NULL),
@@ -10,7 +10,8 @@ barrier_image(NULL), mileage(0),mileage2(0)/*player(nullptr)*/
 {
 	
 	player = new Player();
-	player2 = new Player2();
+	//player2 = new Player2();
+	item = new Item();
 		//画像の読み込み
 	back_ground = LoadGraph("Resource/images/back2.png");
 	barrier_image = LoadGraph("Resource/images/barrier.png");
@@ -71,13 +72,17 @@ AbstractScene* GameMainScene::Update()
 {
 	//プレイヤーの更新
 	player->Update();
-	player2->Update();
+	//player2->Update();
 	//移動処理の更新
 	mileage += (int)player->GetSpeed() + 5;
 	//移動処理の更新
-	mileage2 += (int)player2->GetSpeed() + 5;
+	//mileage2 += (int)player2->GetSpeed() + 5;
 
-	
+
+	  //走行距離ごとにアイテム出現パターンを制御する
+	if (mileage / 10 % 500 == 0) {
+	    item -> CreateItem();
+	}
 
 	
 
@@ -102,17 +107,17 @@ void GameMainScene::Draw() const
 	player->Draw();
 	
 	//プレイヤー２の描画
-	player2->Draw();
+	//player2->Draw();
 
-
+	item->ItemControl();
 	//UIの描画
 	DrawBox(1000, 0, 1280, 720, GetColor(0, 153, 0), TRUE);
 	SetFontSize(16);
 	
-	//DrawFormatString(510, 200, GetColor(0, 0, 0), "走行距離");
-	//DrawFormatString(555, 220, GetColor(255, 255, 255), "%08d", mileage / 10);
-	//DrawFormatString(510, 240, GetColor(0, 0, 0), "スピード");
-	//DrawFormatString(555, 260, GetColor(255, 255, 255), "%08.1f", player->GetSpeed());
+	DrawFormatString(1110, 200, GetColor(0, 0, 0), "走行距離");
+	DrawFormatString(1155, 220, GetColor(255, 255, 255), "%08d", mileage / 10);
+	//DrawFormatString(1510, 240, GetColor(0, 0, 0), "スピード");
+	//DrawFormatString(1155, 260, GetColor(255, 255, 255), "%08.1f", player->GetSpeed());
 
 	
 

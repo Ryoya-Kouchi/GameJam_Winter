@@ -68,9 +68,6 @@
     <ClCompile Include="PadInput.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="Player2.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stage.h">
@@ -117,9 +114,6 @@
     </ClInclude>
     <ClInclude Include="PadInput.h">
       <Filter>Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Player2.h">
-      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

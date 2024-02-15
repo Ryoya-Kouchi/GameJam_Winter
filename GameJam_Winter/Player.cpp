@@ -9,7 +9,6 @@ angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullpt
 	//画像読込
 	Player1 = LoadGraph("Resource/images/Player1.bmp");
 
-
 	is_active = true;
 	location = Vector2D(320.0f, 380.0f);
 	box_size = Vector2D(31.0f, 60.0f);
@@ -18,6 +17,7 @@ angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullpt
 	hp = 1000;
 	fuel = 20000;
 	barrier_count = 3;
+
 }
 
 Player::~Player()
@@ -285,19 +285,24 @@ void Player::Hit()
 	//下幅
 	int playerY2 = location.y - 80;
 
-	//プレイヤー２
-	//左幅
-	int player2X1 = Player2::X2 - 30;
-	//右幅
-	int player2X2 = Player2::X2 + 30;
-	//上幅
-	int player2Y1 = Player2::Y2 + 80;
-	//下幅
-	int player2Y2 = Player2::Y2 - 80;
+	////プレイヤー２
+	////左幅
+	//int player2X1 = Player2::X2 - 30;
+	////右幅
+	//int player2X2 = Player2::X2 + 30;
+	////上幅
+	//int player2Y1 = Player2::Y2 + 80;
+	////下幅
+	//int player2Y2 = Player2::Y2 - 80;
 
-	if (playerX1 == player2X2  && playerY1 == player2Y1 && playerY2 == player2Y2 ||  //左
-		playerX2 == player2X1 &&  playerY1 == player2Y1 && playerY2 == player2Y2)    //右
-	{
-		flg = 1;
-	}
+	//if (playerX1 == player2X2  && playerY1 == player2Y1 && playerY2 == player2Y2 ||  //左
+	//	playerX2 == player2X1 &&  playerY1 == player2Y1 && playerY2 == player2Y2)    //右
+	//{
+	//	flg = 1;
+	//}
+}
+
+void ItemControl(void)
+{
+
 }

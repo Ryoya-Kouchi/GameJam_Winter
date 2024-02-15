@@ -1,1 +1,18 @@
-﻿  GameJam_Winter.vcxproj -> C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
+﻿  Player.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(2934,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3542,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(108,36): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(108,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(110,72): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(110,56): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(110,39): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(110,22): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(112,73): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(112,56): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(112,39): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(112,22): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(280,15): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(282,15): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(284,15): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\Player.cpp(286,15): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+  GameJam_Winter.vcxproj -> C:\Users\KBC12205160\OneDrive\デスクトップ\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
