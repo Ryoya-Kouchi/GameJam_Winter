@@ -3,6 +3,7 @@
 #include "Dxlib.h"
 #include<iostream>
 #include"Player2.h"
+#include "Enemy.h"
 Player::Player() :is_active(false), image(NULL), location(0.0f), box_size(0.0f),
 angle(0.0f), speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0), barrier(nullptr)
 {
@@ -71,6 +72,8 @@ void Player::Update()
 		 if (Moveflg == TRUE) {
 			 Movement();
 		 }
+	X = location.x;
+	Y = location.y;
 
 	//加減速処理
 	Acceleration();
@@ -109,7 +112,10 @@ void Player::Draw()
 {
 	//プレイヤー画像の描画
 	DrawRotaGraph(location.x, location.y, 1.5, angle, Player1, TRUE);
-	
+	DrawLine(X - 30, Y + 80, X - 30, Y - 30, GetColor(0, 255, 0), FALSE);
+	//右
+	DrawLine(X + 30, Y + 80, X + 30, Y- 30, GetColor(0, 255, 0), FALSE);
+
 	////バリアが生成されていたら、描画を行う
 	//if (barrier != nullptr)
 	//{

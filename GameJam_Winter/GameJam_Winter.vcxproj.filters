@@ -68,6 +68,9 @@
     <ClCompile Include="PadInput.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="Player2.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Object</Filter>
     </ClCompile>
@@ -117,6 +120,9 @@
     </ClInclude>
     <ClInclude Include="PadInput.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Player2.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Object</Filter>

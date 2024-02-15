@@ -27,7 +27,8 @@ private:
 public:
 	Player();
 	~Player();
-
+	float X;
+	float Y;
 	void Initialize();		//‰Šú‰»ˆ—
 	void Update();			//XVˆ—
 	void Draw();			//•`‰æˆ—

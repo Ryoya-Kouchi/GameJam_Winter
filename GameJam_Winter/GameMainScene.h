@@ -15,6 +15,7 @@ private:
 	int mileage2;
 	int enemy_image[3];			//敵画像
 	int enemy_count[3];			//通り過ぎた敵カウント
+	int goaldistance;			//ゴールまでの距離
 	Player* player;				//プレイヤー
 	Player2* player2;
 	Item* item;
@@ -36,6 +37,7 @@ private:
 	//void ReadHighScore();
 	//当たり判定
 	bool IsHitCheck(Player* p, Player2* p2);
+	bool HitItemCheck(Player* p, Enemy* e);
 
 
 };
