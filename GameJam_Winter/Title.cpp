@@ -24,7 +24,7 @@ TitleScene::TitleScene()
 	now_menu = static_cast<int>(TITLE_MENU::GAME_START);
 	input_margin = 0;
 	//タイトル遷移時タイトル用BGMをループで流す
-	//PlaySoundFile("Resource/BGM/maou_bgm_neorock76.mp3", DX_PLAYTYPE_LOOP);
+	PlaySoundFile("Resource/BGM/maou_bgm_neorock76.mp3", DX_PLAYTYPE_LOOP);
 }
 
 TitleScene::~TitleScene()
@@ -78,17 +78,17 @@ AbstractScene* TitleScene::Update()
 		switch (current_select)
 		{
 		case TITLE_MENU::GAME_START:
-			// タイトルBGMを止めます
+			// タイトルBGMを止める
 			StopSoundFile();
 			return new GameMainScene();
 			break;
 		case TITLE_MENU::GAME_HELP:
-			// タイトルBGMを止めます
+			// タイトルBGMを止める
 			StopSoundFile();
 			return new HelpScene();
 			break;
 		case TITLE_MENU::GAME_END:
-			// タイトルBGMを止めます
+			// タイトルBGMを止める
 			StopSoundFile();
 			return new EndScene();
 			break;

@@ -9,6 +9,7 @@
 class GameMainScene :public AbstractScene
 {
 private:
+	int gaoldistance;            //ƒS[ƒ‹‚Ü‚Å‚Ì‹——£
 	int back_ground;			//”wŒi‰æ‘œ
 	int barrier_image;			//ƒoƒŠƒA‰æ‘œ
 	int mileage;				//‘–s‹——£

@@ -9,7 +9,7 @@
 GameMainScene::GameMainScene() : back_ground(NULL),
 barrier_image(NULL), mileage(0),mileage2(0),player(nullptr)
 {
-	
+	gaoldistance = 1000;
 	player = new Player();
 	player2 = new Player2();
 		//画像の読み込み
@@ -26,6 +26,9 @@ barrier_image(NULL), mileage(0),mileage2(0),player(nullptr)
 	{
 		throw("Resource/images/barrier.pngがありません\n");
 	}
+
+	//ゲームメイン遷移時ゲームメイン用BGMをループで流す
+	PlaySoundFile("Resource/BGM/maou_bgm_neorock70.mp3", DX_PLAYTYPE_LOOP);
 
 	//オブジェクトの初期化
 	//player->Initialize();
@@ -70,6 +73,8 @@ GameMainScene::~GameMainScene()
 //更新処理
 AbstractScene* GameMainScene::Update()
 {
+	//ゴールまでの距離の減少
+	gaoldistance -= 1;
 	//プレイヤーの更新
 	player->Update();
 	player2->Update();
@@ -92,11 +97,11 @@ AbstractScene* GameMainScene::Update()
 		}
 	}
 
-
 	//プレイヤーの燃料か体力が０未満なら、リザルトに遷移する
-	if (player->GetHp() < 0 &&  1050 >=fxe + (player->GetHp() * 100 / 10000))
+	if (player->GetHp() < 0 &&  1050 >=fxe + (player->GetHp() * 100 / 10000) || gaoldistance <= 0)
 	{
-
+		// ゲームメインBGMを止める
+		StopSoundFile();
 		return new TitleScene();
 	}
 
@@ -119,13 +124,10 @@ void GameMainScene::Draw() const
 
 	//UIの描画
 	DrawBox(1000, 0, 1280, 720, GetColor(0, 153, 0), TRUE);
-	SetFontSize(16);
+	SetFontSize(38);
 	
-	DrawFormatString(1050, 200, GetColor(0, 0, 0), "走行距離");
-	DrawFormatString(1105, 220, GetColor(255, 255, 255), "%08d", mileage / 10);
-	DrawFormatString(1050, 240, GetColor(0, 0, 0), "スピード");
-	DrawFormatString(1105, 260, GetColor(255, 255, 255), "%08.1f", player->GetSpeed());
-
+	DrawFormatString(1000, 10, GetColor(0, 0, 0), "ゴールまであと");
+	DrawFormatString(1000, 60, GetColor(0, 0, 0), "%d", gaoldistance);
 	
 	SetFontSize(30);
 	//燃料・体力ゲージの描画
@@ -145,7 +147,7 @@ void GameMainScene::Draw() const
 	float fxx = 1050.0f;
 	float fyy = 550.0f;
 
-	DrawFormatString(1050,300, GetColor(0, 0, 0), "%d", player->GetHp());
+	//DrawFormatString(1050,300, GetColor(0, 0, 0), "%d", player->GetHp());
 
 	float fxxe = 1150.0f;
 	float fyye = 580.0f;

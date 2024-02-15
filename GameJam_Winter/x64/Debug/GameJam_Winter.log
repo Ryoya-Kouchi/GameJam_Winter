@@ -1,12 +1,5 @@
-﻿  Player.cpp
-C:\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': 変数が何も宣言されていないときは、'Vector2D' の左辺を無視します。
-  (ソース ファイル 'Player.cpp' をコンパイルしています)
-  
-C:\GameJam_Winter\GameJam_Winter\Player.cpp(68,21): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\GameJam_Winter\GameJam_Winter\Player.cpp(74,21): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\GameJam_Winter\GameJam_Winter\Player.cpp(84,20): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\GameJam_Winter\GameJam_Winter\Player.cpp(91,20): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\GameJam_Winter\GameJam_Winter\Player.cpp(109,14): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\GameJam_Winter\GameJam_Winter\Player.cpp(156,36): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\GameJam_Winter\GameJam_Winter\Player.cpp(156,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  GameJam_Winter.vcxproj -> C:\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
+﻿  GameMainScene.cpp
+C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\Vector2D.h(155,2): warning C4091: 'static ': ignored on left of 'Vector2D' when no variable is declared
+C:\dxlib\DxLib.h(2934,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+C:\dxlib\DxLib.h(3542,1): warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+  GameJam_Winter.vcxproj -> C:\Users\Negit\Videos\GameJam_Winter\GameJam_Winter\x64\Debug\GameJam_Winter.exe
